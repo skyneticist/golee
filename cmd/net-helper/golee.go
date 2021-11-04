@@ -12,6 +12,13 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
+type GitCmd struct {
+	cmd  string
+	args []string
+}
+
+type GitCmdList []GitCmd
+
 func init() {
 	cli.AppHelpTemplate += "\nThis might be helpful: \n"
 	cli.CommandHelpTemplate += "\nThis is command help: \n"
@@ -75,6 +82,32 @@ func main() {
 				HelpName:               "",
 				CustomHelpTemplate:     "",
 			},
+			{
+				Name:        "addCommitPush",
+				Aliases:     []string{"acp"},
+				Usage:       "add -> commit -> push in one command",
+				UsageText:   "gg acp",
+				Description: "automates remote push of changes in current branch",
+				ArgsUsage:   "",
+				Category:    "",
+				BashComplete: func(c *cli.Context) {
+					fmt.Fprintf(c.App.Writer, "--better\n")
+				},
+				OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
+					fmt.Fprintf(c.App.Writer, "for shame\n")
+					return err
+				},
+				Action:                 addCommitPush,
+				Subcommands:            []*cli.Command{},
+				Flags:                  []cli.Flag{},
+				SkipFlagParsing:        false,
+				HideHelp:               false,
+				HideHelpCommand:        false,
+				Hidden:                 false,
+				UseShortOptionHandling: false,
+				HelpName:               "",
+				CustomHelpTemplate:     "",
+			},
 		},
 		Flags:                []cli.Flag{},
 		EnableBashCompletion: false,
@@ -116,9 +149,6 @@ func main() {
 	}
 }
 
-// type GitCmdList []string
-type GitCmdList []GitCmd
-
 func (gitCmds GitCmdList) multipass() error {
 	if len(gitCmds) < 1 {
 		panic("no arguments found! must have array entries!")
@@ -132,11 +162,6 @@ func (gitCmds GitCmdList) multipass() error {
 		fmt.Println(result)
 	}
 	return nil
-}
-
-type GitCmd struct {
-	cmd  string
-	args []string
 }
 
 func runGitCmd(subCmd GitCmd) (string, error) {
@@ -154,7 +179,6 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 		return err.Error(), err
 	}
 
-	fmt.Println(string(stdout))
 	return string(stdout), nil
 }
 
@@ -165,6 +189,30 @@ func fullpull(c *cli.Context) error {
 		GitCmd{cmd: "pull", args: nil},
 	}
 	err := fullpullCmds.multipass()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	return nil
+}
+
+func addCommitPush(c *cli.Context) error {
+	commitMsg := "msg goes here, dynamically"
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "add",
+			args: []string{"."},
+		},
+		GitCmd{
+			cmd:  "commit",
+			args: []string{"-m", commitMsg},
+		},
+		GitCmd{
+			cmd:  "push",
+			args: nil,
+		},
+	}
+	err := cmds.multipass()
 	if err != nil {
 		fmt.Println(err.Error())
 	}
