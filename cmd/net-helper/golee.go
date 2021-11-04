@@ -12,12 +12,12 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
+type GitCmdList []GitCmd
+
 type GitCmd struct {
 	cmd  string
 	args []string
 }
-
-type GitCmdList []GitCmd
 
 func init() {
 	cli.AppHelpTemplate += "\nThis might be helpful: \n"
@@ -30,11 +30,9 @@ func init() {
 	cli.HelpPrinter = func(w io.Writer, templ string, data interface{}) {
 		fmt.Fprintf(w, "Never fear, HELP is here: ")
 	}
-
 	cli.VersionPrinter = func(c *cli.Context) {
 		fmt.Fprintf(c.App.Writer, "version=%s\n", c.App.Version)
 	}
-
 	cli.OsExiter = func(c int) {
 		fmt.Fprintf(cli.ErrWriter, "refusing to exit %d\n", c)
 	}
