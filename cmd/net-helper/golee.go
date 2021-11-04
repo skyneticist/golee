@@ -350,6 +350,7 @@ func stashPullPop(c *cli.Context) error {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
+
 	return nil
 }
 
@@ -369,6 +370,7 @@ func softReset(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
 
@@ -388,6 +390,7 @@ func hardReset(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
 
@@ -402,9 +405,11 @@ func undoMerge(c *cli.Context) error {
 			args: []string{"--oneline"},
 		},
 	}
+
 	err := cmds.multipass()
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
