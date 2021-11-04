@@ -364,3 +364,5 @@ func hardReset(c *cli.Context) error {
 	}
 	return nil
 }
+
+// these comments are for testing purposes
