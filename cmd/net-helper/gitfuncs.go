@@ -11,6 +11,7 @@ import (
 /*
 	multipass()
 
+	- helper function
 	- takes a slice of GitCmd(s) as only parameter
 	- iterates over slice, passing entries to runGitCmd()
 */
@@ -31,6 +32,14 @@ func (gitCmds GitCmdList) multipass() (string, error) {
 	return result, nil
 }
 
+/*
+	runGitCmd()
+
+	- main cmd which executes git cmds
+	- takes a single GitCmd struct as parameter
+	- executes the GitCmd that is passed
+	- handles parsing of all subCmds
+*/
 func runGitCmd(subCmd GitCmd) (string, error) {
 	git := "git"
 	args := []string{}
@@ -49,6 +58,13 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 	return string(stdout), nil
 }
 
+/*
+	FullPull()
+
+	- Git Function
+	- stashes local changes before checking out and pulling down main
+	TODO: need to be able to pass another arg/flag to specify which branch (default: main)
+*/
 func Fullpull(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
