@@ -46,7 +46,6 @@ func init() {
 	}
 }
 
-// testing out ACP!!!!!!!
 func main() {
 	app := &cli.App{
 		Name:        "git golee",
@@ -99,6 +98,32 @@ func main() {
 					return err
 				},
 				Action:                 addCommitPush,
+				Subcommands:            []*cli.Command{},
+				Flags:                  []cli.Flag{},
+				SkipFlagParsing:        false,
+				HideHelp:               false,
+				HideHelpCommand:        false,
+				Hidden:                 false,
+				UseShortOptionHandling: false,
+				HelpName:               "",
+				CustomHelpTemplate:     "",
+			},
+			{
+				Name:        "stashPullPop",
+				Aliases:     []string{"spp"},
+				Usage:       "add -> commit -> push in one command",
+				UsageText:   "gg spp",
+				Description: "automates remote push of changes in current branch",
+				ArgsUsage:   "",
+				Category:    "",
+				BashComplete: func(c *cli.Context) {
+					fmt.Fprintf(c.App.Writer, "--better\n")
+				},
+				OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
+					fmt.Fprintf(c.App.Writer, "for shame\n")
+					return err
+				},
+				Action:                 stashPullPop,
 				Subcommands:            []*cli.Command{},
 				Flags:                  []cli.Flag{},
 				SkipFlagParsing:        false,
@@ -166,8 +191,8 @@ func (gitCmds GitCmdList) multipass() error {
 }
 
 func runGitCmd(subCmd GitCmd) (string, error) {
-	args := []string{}
 	git := "git"
+	args := []string{}
 
 	args = append(args, subCmd.cmd)
 	args = append(args, subCmd.args...)
@@ -185,9 +210,18 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 
 func fullpull(c *cli.Context) error {
 	fullpullCmds := GitCmdList{
-		GitCmd{cmd: "stash", args: nil},
-		GitCmd{cmd: "checkout", args: []string{"main"}},
-		GitCmd{cmd: "pull", args: nil},
+		GitCmd{
+			cmd:  "stash",
+			args: nil,
+		},
+		GitCmd{
+			cmd:  "checkout",
+			args: []string{"main"},
+		},
+		GitCmd{
+			cmd:  "pull",
+			args: nil,
+		},
 	}
 	err := fullpullCmds.multipass()
 	if err != nil {
@@ -218,5 +252,27 @@ func addCommitPush(c *cli.Context) error {
 		fmt.Println(err.Error())
 	}
 
+	return nil
+}
+
+func stashPullPop(c *cli.Context) error {
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "stash",
+			args: nil,
+		},
+		GitCmd{
+			cmd:  "pull",
+			args: nil,
+		},
+		GitCmd{
+			cmd:  "stash",
+			args: []string{"pop"},
+		},
+	}
+	err := cmds.multipass()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 	return nil
 }
