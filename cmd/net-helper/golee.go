@@ -132,6 +132,58 @@ func main() {
 				HelpName:               "",
 				CustomHelpTemplate:     "",
 			},
+			{
+				Name:        "softReset",
+				Aliases:     []string{"sr", "soft"},
+				Usage:       "git soft reset commit in one command",
+				UsageText:   "gg soft",
+				Description: "uncommits most recent commit, keeps changes intact",
+				ArgsUsage:   "",
+				Category:    "",
+				BashComplete: func(c *cli.Context) {
+					fmt.Fprintf(c.App.Writer, "--better\n")
+				},
+				OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
+					fmt.Fprintf(c.App.Writer, "for shame\n")
+					return err
+				},
+				Action:                 softReset,
+				Subcommands:            []*cli.Command{},
+				Flags:                  []cli.Flag{},
+				SkipFlagParsing:        false,
+				HideHelp:               false,
+				HideHelpCommand:        false,
+				Hidden:                 false,
+				UseShortOptionHandling: false,
+				HelpName:               "",
+				CustomHelpTemplate:     "",
+			},
+			{
+				Name:        "hardReset",
+				Aliases:     []string{"hr", "hard"},
+				Usage:       "git hard reset commit in one command",
+				UsageText:   "gg hard",
+				Description: "uncommits most recent commit, destroys changes from commit as well!",
+				ArgsUsage:   "",
+				Category:    "",
+				BashComplete: func(c *cli.Context) {
+					fmt.Fprintf(c.App.Writer, "--better\n")
+				},
+				OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
+					fmt.Fprintf(c.App.Writer, "for shame\n")
+					return err
+				},
+				Action:                 hardReset,
+				Subcommands:            []*cli.Command{},
+				Flags:                  []cli.Flag{},
+				SkipFlagParsing:        false,
+				HideHelp:               false,
+				HideHelpCommand:        false,
+				Hidden:                 false,
+				UseShortOptionHandling: false,
+				HelpName:               "",
+				CustomHelpTemplate:     "",
+			},
 		},
 		Flags:                []cli.Flag{},
 		EnableBashCompletion: false,
@@ -175,7 +227,7 @@ func main() {
 
 func (gitCmds GitCmdList) multipass() error {
 	if len(gitCmds) < 1 {
-		panic("no arguments found! must have array entries!")
+		panic("no arguments found! must have GitCmd entries!")
 	}
 
 	for _, pass := range gitCmds {
@@ -207,7 +259,7 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 }
 
 func fullpull(c *cli.Context) error {
-	fullpullCmds := GitCmdList{
+	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "stash",
 			args: nil,
@@ -221,7 +273,7 @@ func fullpull(c *cli.Context) error {
 			args: nil,
 		},
 	}
-	err := fullpullCmds.multipass()
+	err := cmds.multipass()
 	if err != nil {
 		fmt.Println(err.Error())
 	}
@@ -271,6 +323,44 @@ func stashPullPop(c *cli.Context) error {
 	err := cmds.multipass()
 	if err != nil {
 		fmt.Println(err.Error())
+	}
+	return nil
+}
+
+func softReset(c *cli.Context) error {
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "reset",
+			args: []string{"--soft", "HEAD^"},
+		},
+		GitCmd{
+			cmd:  "status",
+			args: nil,
+		},
+	}
+
+	err := cmds.multipass()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func hardReset(c *cli.Context) error {
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "reset",
+			args: []string{"--hard", "HEAD^"},
+		},
+		GitCmd{
+			cmd:  "status",
+			args: nil,
+		},
+	}
+
+	err := cmds.multipass()
+	if err != nil {
+		return err
 	}
 	return nil
 }
