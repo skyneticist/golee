@@ -184,6 +184,32 @@ func main() {
 				HelpName:               "",
 				CustomHelpTemplate:     "",
 			},
+			{
+				Name:        "undoMerge",
+				Aliases:     []string{"um", "undomerge"},
+				Usage:       "undo last merge in one command",
+				UsageText:   "gg um",
+				Description: "reverts master branch to state before selected/last merge",
+				ArgsUsage:   "",
+				Category:    "",
+				BashComplete: func(c *cli.Context) {
+					fmt.Fprintf(c.App.Writer, "--better\n")
+				},
+				OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
+					fmt.Fprintf(c.App.Writer, "for shame\n")
+					return err
+				},
+				Action:                 undoMerge,
+				Subcommands:            []*cli.Command{},
+				Flags:                  []cli.Flag{},
+				SkipFlagParsing:        false,
+				HideHelp:               false,
+				HideHelpCommand:        false,
+				Hidden:                 false,
+				UseShortOptionHandling: false,
+				HelpName:               "",
+				CustomHelpTemplate:     "",
+			},
 		},
 		Flags:                []cli.Flag{},
 		EnableBashCompletion: false,
@@ -282,7 +308,7 @@ func fullpull(c *cli.Context) error {
 }
 
 func addCommitPush(c *cli.Context) error {
-	commitMsg := "msg goes here, dynamically"
+	commitMsg := os.Args[2]
 	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "add",
@@ -365,4 +391,20 @@ func hardReset(c *cli.Context) error {
 	return nil
 }
 
-// these comments are for testing purposes
+func undoMerge(c *cli.Context) error {
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "checkout",
+			args: []string{"main"},
+		},
+		GitCmd{
+			cmd:  "log",
+			args: []string{"--oneline"},
+		},
+	}
+	err := cmds.multipass()
+	if err != nil {
+		return err
+	}
+	return nil
+}
