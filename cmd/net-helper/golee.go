@@ -161,7 +161,7 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 func fullpull(c *cli.Context) error {
 	fullpullCmds := GitCmdList{
 		GitCmd{cmd: "stash", args: nil},
-		GitCmd{cmd: "checkout", args: []string{"master"}},
+		GitCmd{cmd: "checkout", args: []string{"main"}},
 		GitCmd{cmd: "pull", args: nil},
 	}
 	err := fullpullCmds.multipass()
