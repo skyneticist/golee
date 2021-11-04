@@ -6,11 +6,16 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"os/exec"
 	"time"
 
 	cli "github.com/urfave/cli/v2"
 )
+
+// TODO: add comments where it makes sense
+// TODO: make output colorful like native git cmds
+// TODO: add fx for appending the story number from branch name to beginning of commit
+// TODO: break out functions and cli.Commands to their own individual files (gitfuncs.go, commands.go)
+// TODO: much more to come
 
 type GitCmdList []GitCmd
 
@@ -69,7 +74,7 @@ func main() {
 					fmt.Fprintf(c.App.Writer, "for shame\n")
 					return err
 				},
-				Action:                 fullpull,
+				Action:                 Fullpull,
 				Subcommands:            []*cli.Command{},
 				Flags:                  []cli.Flag{},
 				SkipFlagParsing:        false,
@@ -95,7 +100,7 @@ func main() {
 					fmt.Fprintf(c.App.Writer, "for shame\n")
 					return err
 				},
-				Action:                 addCommitPush,
+				Action:                 AddCommitPush,
 				Subcommands:            []*cli.Command{},
 				Flags:                  []cli.Flag{},
 				SkipFlagParsing:        false,
@@ -121,7 +126,7 @@ func main() {
 					fmt.Fprintf(c.App.Writer, "for shame\n")
 					return err
 				},
-				Action:                 stashPullPop,
+				Action:                 StashPullPop,
 				Subcommands:            []*cli.Command{},
 				Flags:                  []cli.Flag{},
 				SkipFlagParsing:        false,
@@ -147,7 +152,7 @@ func main() {
 					fmt.Fprintf(c.App.Writer, "for shame\n")
 					return err
 				},
-				Action:                 softReset,
+				Action:                 SoftReset,
 				Subcommands:            []*cli.Command{},
 				Flags:                  []cli.Flag{},
 				SkipFlagParsing:        false,
@@ -173,7 +178,7 @@ func main() {
 					fmt.Fprintf(c.App.Writer, "for shame\n")
 					return err
 				},
-				Action:                 hardReset,
+				Action:                 HardReset,
 				Subcommands:            []*cli.Command{},
 				Flags:                  []cli.Flag{},
 				SkipFlagParsing:        false,
@@ -199,7 +204,7 @@ func main() {
 					fmt.Fprintf(c.App.Writer, "for shame\n")
 					return err
 				},
-				Action:                 undoMerge,
+				Action:                 UndoMerge,
 				Subcommands:            []*cli.Command{},
 				Flags:                  []cli.Flag{},
 				SkipFlagParsing:        false,
@@ -249,167 +254,4 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-}
-
-func (gitCmds GitCmdList) multipass() error {
-	if len(gitCmds) < 1 {
-		panic("no arguments found! must have GitCmd entries!")
-	}
-
-	for _, pass := range gitCmds {
-		result, err := runGitCmd(pass)
-		if err != nil {
-			return err
-		}
-		fmt.Println(result)
-	}
-	return nil
-}
-
-func runGitCmd(subCmd GitCmd) (string, error) {
-	git := "git"
-	args := []string{}
-
-	args = append(args, subCmd.cmd)
-	args = append(args, subCmd.args...)
-
-	cmd := exec.Command(git, args...)
-	stdout, err := cmd.Output()
-
-	if err != nil {
-		fmt.Println(err.Error())
-		return err.Error(), err
-	}
-
-	return string(stdout), nil
-}
-
-func fullpull(c *cli.Context) error {
-	cmds := GitCmdList{
-		GitCmd{
-			cmd:  "stash",
-			args: nil,
-		},
-		GitCmd{
-			cmd:  "checkout",
-			args: []string{"main"},
-		},
-		GitCmd{
-			cmd:  "pull",
-			args: nil,
-		},
-	}
-	err := cmds.multipass()
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-
-	return nil
-}
-
-func addCommitPush(c *cli.Context) error {
-	commitMsg := os.Args[2]
-	cmds := GitCmdList{
-		GitCmd{
-			cmd:  "add",
-			args: []string{"."},
-		},
-		GitCmd{
-			cmd:  "commit",
-			args: []string{"-m", commitMsg},
-		},
-		GitCmd{
-			cmd:  "push",
-			args: nil,
-		},
-	}
-	err := cmds.multipass()
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-
-	return nil
-}
-
-func stashPullPop(c *cli.Context) error {
-	cmds := GitCmdList{
-		GitCmd{
-			cmd:  "stash",
-			args: nil,
-		},
-		GitCmd{
-			cmd:  "pull",
-			args: nil,
-		},
-		GitCmd{
-			cmd:  "stash",
-			args: []string{"pop"},
-		},
-	}
-	err := cmds.multipass()
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-
-	return nil
-}
-
-func softReset(c *cli.Context) error {
-	cmds := GitCmdList{
-		GitCmd{
-			cmd:  "reset",
-			args: []string{"--soft", "HEAD^"},
-		},
-		GitCmd{
-			cmd:  "status",
-			args: nil,
-		},
-	}
-
-	err := cmds.multipass()
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func hardReset(c *cli.Context) error {
-	cmds := GitCmdList{
-		GitCmd{
-			cmd:  "reset",
-			args: []string{"--hard", "HEAD^"},
-		},
-		GitCmd{
-			cmd:  "status",
-			args: nil,
-		},
-	}
-
-	err := cmds.multipass()
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func undoMerge(c *cli.Context) error {
-	cmds := GitCmdList{
-		GitCmd{
-			cmd:  "checkout",
-			args: []string{"main"},
-		},
-		GitCmd{
-			cmd:  "log",
-			args: []string{"--oneline"},
-		},
-	}
-
-	err := cmds.multipass()
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
