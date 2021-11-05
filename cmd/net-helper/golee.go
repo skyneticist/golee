@@ -19,7 +19,7 @@ func main() {
 		Usage:       "git cli helper for productivity",
 		UsageText:   "",
 		ArgsUsage:   "",
-		Version:     "",
+		Version:     "0.1",
 		Description: "",
 		Commands: []*cli.Command{
 			&FullPullCmd,
