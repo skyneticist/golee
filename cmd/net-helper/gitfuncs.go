@@ -17,12 +17,17 @@ func (gitCmds GitCmdList) multipass() ([]string, error) {
 
 	var result []string
 
-	for _, pass := range gitCmds {
-		info, err := runGitCmd(pass)
+	for i, gitCmd := range gitCmds {
+		info, err := runGitCmd(gitCmd)
 		if err != nil {
-			return []string{"error occurred at multipass()!"}, err
+			return []string{err.Error()}, err
 		}
-		result = append(result, info)
+		if i == 0 {
+			info = "\n" + info
+			result = append(result, info)
+		} else {
+			result = append(result, info)
+		}
 	}
 	return result, nil
 }
@@ -39,7 +44,6 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 	cmd := exec.Command(git, args...)
 	stdout, err := cmd.Output()
 	if err != nil {
-		fmt.Println(err.Error())
 		return "error at runGitCmd()!", err
 	}
 
@@ -77,7 +81,7 @@ func Fullpull(c *cli.Context) error {
 
 	info, err := cmds.multipass()
 	if err != nil {
-		fmt.Println(err.Error())
+		return err
 	}
 	fmt.Println(info)
 
@@ -132,7 +136,6 @@ func AddCommitPushRemote(c *cli.Context) error {
 
 	info, err := cmds.multipass()
 	if err != nil {
-		fmt.Println(err.Error())
 		return err
 	}
 	fmt.Println(info)
@@ -159,7 +162,7 @@ func StashPullPop(c *cli.Context) error {
 
 	info, err := cmds.multipass()
 	if err != nil {
-		fmt.Println(err.Error())
+		return err
 	}
 	fmt.Println(info)
 
@@ -213,10 +216,10 @@ func HardReset(c *cli.Context) error {
 // UndoMerge - Undo most recent merge unless commit hash passed
 func UndoMerge(c *cli.Context) error {
 	cmds := GitCmdList{
-		GitCmd{
-			cmd:  "checkout",
-			args: []string{"main"},
-		},
+		// GitCmd{
+		// 	cmd:  "checkout",
+		// 	args: []string{"main"},
+		// },
 		GitCmd{
 			cmd:  "log",
 			args: []string{"--oneline"},
