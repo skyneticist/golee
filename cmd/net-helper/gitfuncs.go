@@ -76,7 +76,7 @@ func Fullpull(c *cli.Context) error {
 
 // AddCommitPush - Add, Commit, Push local changes to current branch
 func AddCommitPush(c *cli.Context) error {
-	commitMsg := os.Args[2]
+	commitMsg := os.Args[1]
 	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "add",
