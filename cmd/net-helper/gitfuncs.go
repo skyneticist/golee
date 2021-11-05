@@ -20,7 +20,7 @@ func (gitCmds GitCmdList) multipass() ([]string, error) {
 	for i, gitCmd := range gitCmds {
 		info, err := runGitCmd(gitCmd)
 		if err != nil {
-			return []string{err.Error()}, err
+			return []string{"Error occurred in multipass function - line 13 in gitfuncs.go"}, err
 		}
 		if i == 0 {
 			info = "\n" + info
