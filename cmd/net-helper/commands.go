@@ -198,6 +198,6 @@ var UndoMergeCmd = cli.Command{
 	HideHelpCommand:        false,
 	Hidden:                 false,
 	UseShortOptionHandling: false,
-	HelpName:               "",
+	HelpName:               "gg um",
 	CustomHelpTemplate:     "",
 }
