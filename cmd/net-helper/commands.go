@@ -10,11 +10,11 @@ import (
 var FullPullCmd cli.Command = cli.Command{
 	Name:        "fullpull",
 	Aliases:     []string{"fp"},
-	Usage:       "safely pull down all changes for all projects in a given folder",
-	UsageText:   "gg fp",
+	Usage:       "gg fp",
+	UsageText:   "safely pull down all changes for all projects in a given folder",
 	Description: "automates pull on all repos in directory",
 	ArgsUsage:   "",
-	Category:    "",
+	Category:    "Git Productivity Helper",
 	BashComplete: func(c *cli.Context) {
 		fmt.Fprintf(c.App.Writer, "--better\n")
 	},
@@ -39,10 +39,10 @@ var AddCpCmd cli.Command = cli.Command{
 	Name:        "addCommitPush",
 	Aliases:     []string{"acp"},
 	Usage:       "add -> commit -> push in one command",
-	UsageText:   "gg acp",
+	UsageText:   "gg acp [commit_msg]",
 	Description: "automates remote push of changes in current branch",
 	ArgsUsage:   "",
-	Category:    "",
+	Category:    "Git Productivity Helper",
 	BashComplete: func(c *cli.Context) {
 		fmt.Fprintf(c.App.Writer, "--better\n")
 	},
@@ -66,8 +66,8 @@ var AddCpCmd cli.Command = cli.Command{
 var AddCpRCmd cli.Command = cli.Command{
 	Name:        "addCommitPushRemote",
 	Aliases:     []string{"acpr"},
-	Usage:       "add -> commit -> push -> set upstream in one command",
-	UsageText:   "gg acpr",
+	Usage:       "gg acpr [commit_msg]",
+	UsageText:   "add -> commit -> push -> set upstream in one command",
 	Description: "automates remote push of changes in fresh branch",
 	ArgsUsage:   "",
 	Category:    "",
@@ -94,8 +94,8 @@ var AddCpRCmd cli.Command = cli.Command{
 var StashPpCmd cli.Command = cli.Command{
 	Name:        "stashPullPop",
 	Aliases:     []string{"spp"},
-	Usage:       "add -> commit -> push in one command",
-	UsageText:   "gg spp",
+	Usage:       "gg spp",
+	UsageText:   "add -> commit -> push in one command",
 	Description: "automates remote push of changes in current branch",
 	ArgsUsage:   "",
 	Category:    "",
@@ -122,8 +122,8 @@ var StashPpCmd cli.Command = cli.Command{
 var SoftResetCmd cli.Command = cli.Command{
 	Name:        "softReset",
 	Aliases:     []string{"sr", "soft"},
-	Usage:       "git soft reset commit in one command",
-	UsageText:   "gg soft",
+	Usage:       "gg soft",
+	UsageText:   "git soft reset commit in one command",
 	Description: "uncommits most recent commit, keeps changes intact",
 	ArgsUsage:   "",
 	Category:    "",
@@ -150,8 +150,8 @@ var SoftResetCmd cli.Command = cli.Command{
 var HardResetCmd = cli.Command{
 	Name:        "hardReset",
 	Aliases:     []string{"hr", "hard"},
-	Usage:       "git hard reset commit in one command",
-	UsageText:   "gg hard",
+	Usage:       "gg hard",
+	UsageText:   "git hard reset commit in one command",
 	Description: "uncommits most recent commit, destroys changes from commit as well!",
 	ArgsUsage:   "",
 	Category:    "",
@@ -178,8 +178,8 @@ var HardResetCmd = cli.Command{
 var UndoMergeCmd = cli.Command{
 	Name:        "undoMerge",
 	Aliases:     []string{"um", "undomerge"},
-	Usage:       "undo last merge in one command",
-	UsageText:   "gg um",
+	Usage:       "gg um",
+	UsageText:   "undo last merge in one command",
 	Description: "reverts master branch to state before selected/last merge",
 	ArgsUsage:   "",
 	Category:    "",
