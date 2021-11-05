@@ -8,13 +8,8 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
-/*
-	multipass()
-
-	- helper function
-	- takes a slice of GitCmd(s) as only parameter
-	- iterates over slice, passing entries to runGitCmd()
-*/
+// multipass - Receiver function that takes a GitCmdList ([]string) and iterates
+// over each entry, passing the entry to runGitCmd
 func (gitCmds GitCmdList) multipass() (string, error) {
 	if len(gitCmds) < 1 {
 		panic("no arguments found! must have GitCmd entries!")
@@ -32,14 +27,8 @@ func (gitCmds GitCmdList) multipass() (string, error) {
 	return result, nil
 }
 
-/*
-	runGitCmd()
-
-	- main cmd which executes git cmds
-	- takes a single GitCmd struct as parameter
-	- executes the GitCmd that is passed
-	- handles parsing of all subCmds
-*/
+// runGitCmd - Takes GitCmd parameter, executing the git command passed
+// then returning command output to stdout
 func runGitCmd(subCmd GitCmd) (string, error) {
 	git := "git"
 	args := []string{}
@@ -58,13 +47,7 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 	return string(stdout), nil
 }
 
-/*
-	FullPull()
-
-	- Git Function
-	- stashes local changes before checking out and pulling down main
-	TODO: need to be able to pass another arg/flag to specify which branch (default: main)
-*/
+// Fullpull - Stash local changes then pull remote changes
 func Fullpull(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
@@ -91,6 +74,7 @@ func Fullpull(c *cli.Context) error {
 	return nil
 }
 
+// AddCommitPush - Add, Commit, Push local changes to current branch
 func AddCommitPush(c *cli.Context) error {
 	commitMsg := os.Args[2]
 	cmds := GitCmdList{
@@ -118,6 +102,7 @@ func AddCommitPush(c *cli.Context) error {
 	return nil
 }
 
+// StashPullPop - Runs git stash, pull, pop
 func StashPullPop(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
@@ -144,6 +129,7 @@ func StashPullPop(c *cli.Context) error {
 	return nil
 }
 
+// SoftReset - Undo last commit while saving changes
 func SoftReset(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
@@ -166,6 +152,7 @@ func SoftReset(c *cli.Context) error {
 	return nil
 }
 
+// HardReset - Undo last commit while destroying changes
 func HardReset(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
@@ -188,6 +175,7 @@ func HardReset(c *cli.Context) error {
 	return nil
 }
 
+// UndoMerge - Undo most recent merge unless commit hash passed
 func UndoMerge(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
