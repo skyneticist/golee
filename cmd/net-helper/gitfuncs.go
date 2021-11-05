@@ -47,6 +47,17 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 	return string(stdout), nil
 }
 
+// getGitBranch - Grabs current checkedout branch
+func getGitBranch() (string, error) {
+	cmd := exec.Command("git", "branch")
+	stdout, err := cmd.Output()
+	if err != nil {
+		return err.Error(), err
+	}
+
+	return string(stdout), nil
+}
+
 // Fullpull - Stash local changes then pull remote changes
 func Fullpull(c *cli.Context) error {
 	cmds := GitCmdList{
@@ -95,7 +106,39 @@ func AddCommitPush(c *cli.Context) error {
 	info, err := cmds.multipass()
 
 	if err != nil {
-		fmt.Println(err.Error())
+		return err
+	}
+	fmt.Println(info)
+
+	return nil
+}
+
+// AddCommitPushRemote - Add, Commit, Push local changes
+// on fresh branch (sets upstream)
+func AddCommitPushRemote(c *cli.Context) error {
+	gitBranch, err := getGitBranch()
+	if err != nil {
+		return err
+	}
+	commitMsg := os.Args[2]
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "add",
+			args: []string{"."},
+		},
+		GitCmd{
+			cmd:  "commit",
+			args: []string{"-m", commitMsg},
+		},
+		GitCmd{
+			cmd:  "push",
+			args: []string{"--set-upstream", "origin", gitBranch},
+		},
+	}
+
+	info, err := cmds.multipass()
+	if err != nil {
+		return err
 	}
 	fmt.Println(info)
 
