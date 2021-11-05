@@ -8,12 +8,7 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
-/*
-	InitApp()
-
-	- set multiple templates and printers for cli app
-	- simply a way to customize the underlying behavior
-*/
+// InitApp - Setup cli app configuration
 func InitApp() {
 	cli.AppHelpTemplate += "\nThis might be helpful: \n"
 	cli.CommandHelpTemplate += "\nThis is command help: \n"

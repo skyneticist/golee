@@ -6,6 +6,7 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
+// FullPullCmd - Cli Command that invokes FullPull git function
 var FullPullCmd cli.Command = cli.Command{
 	Name:        "fullpull",
 	Aliases:     []string{"fp"},
@@ -33,6 +34,7 @@ var FullPullCmd cli.Command = cli.Command{
 	CustomHelpTemplate:     "",
 }
 
+// AddCpCmd - Cli Command that invokes AddCommitPush git function
 var AddCpCmd cli.Command = cli.Command{
 	Name:        "addCommitPush",
 	Aliases:     []string{"acp"},
@@ -60,6 +62,7 @@ var AddCpCmd cli.Command = cli.Command{
 	CustomHelpTemplate:     "",
 }
 
+// StashPpCmd - Cli Command that invokes StashPullPop git function
 var StashPpCmd cli.Command = cli.Command{
 	Name:        "stashPullPop",
 	Aliases:     []string{"spp"},
@@ -87,6 +90,7 @@ var StashPpCmd cli.Command = cli.Command{
 	CustomHelpTemplate:     "",
 }
 
+// SoftResetCmd - Cli Command that invokes SoftReset git function
 var SoftResetCmd cli.Command = cli.Command{
 	Name:        "softReset",
 	Aliases:     []string{"sr", "soft"},
@@ -114,6 +118,7 @@ var SoftResetCmd cli.Command = cli.Command{
 	CustomHelpTemplate:     "",
 }
 
+// HardResetCmd - Cli Command that invokes HardReset git function
 var HardResetCmd = cli.Command{
 	Name:        "hardReset",
 	Aliases:     []string{"hr", "hard"},
@@ -141,6 +146,7 @@ var HardResetCmd = cli.Command{
 	CustomHelpTemplate:     "",
 }
 
+// UndoMergeCmd - Cli Command that invokes UndoMerge git function
 var UndoMergeCmd = cli.Command{
 	Name:        "undoMerge",
 	Aliases:     []string{"um", "undomerge"},
