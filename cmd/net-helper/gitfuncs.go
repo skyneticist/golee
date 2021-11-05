@@ -10,19 +10,19 @@ import (
 
 // multipass - Receiver function that takes a GitCmdList ([]string) and iterates
 // over each entry, passing the entry to runGitCmd
-func (gitCmds GitCmdList) multipass() (string, error) {
+func (gitCmds GitCmdList) multipass() ([]string, error) {
 	if len(gitCmds) < 1 {
 		panic("no arguments found! must have GitCmd entries!")
 	}
 
-	var result string
+	var result []string
 
 	for _, pass := range gitCmds {
 		info, err := runGitCmd(pass)
 		if err != nil {
-			return "error occurred at multipass()!", err
+			return []string{"error occurred at multipass()!"}, err
 		}
-		result = info
+		result = append(result, info)
 	}
 	return result, nil
 }
@@ -91,6 +91,10 @@ func AddCommitPush(c *cli.Context) error {
 	commitMsg := os.Args[2]
 	cmds := GitCmdList{
 		GitCmd{
+			cmd:  "stash",
+			args: nil,
+		},
+		GitCmd{
 			cmd:  "add",
 			args: []string{"."},
 		},
@@ -118,7 +122,6 @@ func AddCommitPush(c *cli.Context) error {
 // on fresh branch (sets upstream)
 func AddCommitPushRemote(c *cli.Context) error {
 	gitBranch, err := getGitBranch()
-	fmt.Println(gitBranch)
 	if err != nil {
 		return err
 	}
