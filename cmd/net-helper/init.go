@@ -14,7 +14,7 @@ func InitApp() {
 	cli.CommandHelpTemplate += "\nThis is command help: \n"
 	cli.SubcommandHelpTemplate += "\nThis is subcommand help"
 
-	cli.HelpFlag = &cli.BoolFlag{Name: "help", Aliases: []string{"h", "H", "halp", "wtf"}}
+	cli.HelpFlag = &cli.BoolFlag{Name: "help", Aliases: []string{"h", "H", "wtf"}}
 	cli.VersionFlag = &cli.BoolFlag{Name: "print-version", Aliases: []string{"V", "v", "ver"}}
 
 	cli.HelpPrinter = func(w io.Writer, templ string, data interface{}) {
