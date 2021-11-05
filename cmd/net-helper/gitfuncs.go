@@ -10,19 +10,19 @@ import (
 
 // multipass - Receiver function that takes a GitCmdList ([]string) and iterates
 // over each entry, passing the entry to runGitCmd
-func (gitCmds GitCmdList) multipass() ([]string, error) {
+func (gitCmds GitCmdList) multipass() (string, error) {
 	if len(gitCmds) < 1 {
 		panic("no arguments found! must have GitCmd entries!")
 	}
 
-	var result []string
+	var result string
 
 	for _, pass := range gitCmds {
 		info, err := runGitCmd(pass)
 		if err != nil {
-			return []string{"error occurred at multipass()!"}, err
+			return "error occurred at multipass()!", err
 		}
-		result = append(result, info)
+		result = info
 	}
 	return result, nil
 }
