@@ -78,7 +78,7 @@ var AddCpRCmd cli.Command = cli.Command{
 		fmt.Fprintf(c.App.Writer, "for shame\n")
 		return err
 	},
-	Action:                 AddCommitPush,
+	Action:                 AddCommitPushRemote,
 	Subcommands:            []*cli.Command{},
 	Flags:                  []cli.Flag{},
 	SkipFlagParsing:        false,
