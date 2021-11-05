@@ -41,7 +41,7 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 
 	if err != nil {
 		fmt.Println(err.Error())
-		return err.Error(), err
+		return "error at runGitCmd() !!!", err
 	}
 
 	return string(stdout), nil
