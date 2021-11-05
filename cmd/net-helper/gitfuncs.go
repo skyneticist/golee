@@ -140,6 +140,7 @@ func AddCommitPushRemote(c *cli.Context) error {
 
 	info, err := cmds.multipass()
 	if err != nil {
+		fmt.Println(err.Error())
 		return err
 	}
 	fmt.Println(info)
