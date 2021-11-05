@@ -87,7 +87,7 @@ func Fullpull(c *cli.Context) error {
 
 // AddCommitPush - Add, Commit, Push local changes to current branch
 func AddCommitPush(c *cli.Context) error {
-	commitMsg := os.Args[2]
+	commitMsg := os.Args[3]
 	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "add",
@@ -120,7 +120,7 @@ func AddCommitPushRemote(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
-	commitMsg := os.Args[2]
+	commitMsg := os.Args[3]
 	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "add",
