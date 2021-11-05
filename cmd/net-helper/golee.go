@@ -9,10 +9,6 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
-// TODO: add --set-upstream workflow in ACP Action
-// TODO: make output colorful like native git cmds
-// TODO: add fx for appending the story number from branch name to beginning of commit
-
 func main() {
 	// initialize config for cli app
 	InitApp()
