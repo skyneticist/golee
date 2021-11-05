@@ -114,10 +114,6 @@ func AddCommitPush(c *cli.Context) error {
 // AddCommitPushRemote - Add, Commit, Push local changes
 // on fresh branch (sets upstream)
 func AddCommitPushRemote(c *cli.Context) error {
-	// gitBranch, err := getGitBranch()
-	// if err != nil {
-	// 	return err
-	// }
 	commitMsg := os.Args[2]
 	cmds := GitCmdList{
 		GitCmd{
