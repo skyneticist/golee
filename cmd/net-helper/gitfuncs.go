@@ -49,7 +49,8 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 
 // getGitBranch - Grabs current checkedout branch
 func getGitBranch() (string, error) {
-	cmd := exec.Command("git", "branch")
+	subCmd := []string{"rev-parse", "--abbrev-ref", "HEAD"}
+	cmd := exec.Command("git", subCmd...)
 	stdout, err := cmd.Output()
 	if err != nil {
 		return err.Error(), err
