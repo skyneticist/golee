@@ -6,6 +6,8 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
+// TEST COMMENT!!!!!!!!!!!!!!!!!!
+
 // FullPullCmd - Cli Command that invokes FullPull git function
 var FullPullCmd cli.Command = cli.Command{
 	Name:        "fullpull",
