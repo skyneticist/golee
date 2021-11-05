@@ -28,6 +28,7 @@ func main() {
 		Commands: []*cli.Command{
 			&FullPullCmd,
 			&AddCpCmd,
+			&AddCpRCmd,
 			&StashPpCmd,
 			&SoftResetCmd,
 			&HardResetCmd,
