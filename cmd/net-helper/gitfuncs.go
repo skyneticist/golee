@@ -145,7 +145,7 @@ func AddCommitPushRemote(c *cli.Context) error {
 	return nil
 }
 
-// StashPullPop - Runs git stash, pull, pop
+// StashPullPop - Runs git stash, pull, pop.
 func StashPullPop(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
