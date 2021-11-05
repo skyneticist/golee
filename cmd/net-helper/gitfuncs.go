@@ -18,11 +18,11 @@ func (gitCmds GitCmdList) multipass() (string, error) {
 	var result string
 
 	for _, pass := range gitCmds {
-		res, err := runGitCmd(pass)
+		info, err := runGitCmd(pass)
 		if err != nil {
 			return "error occurred at multipass()!", err
 		}
-		result = res
+		result = info
 	}
 	return result, nil
 }
@@ -41,7 +41,7 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 
 	if err != nil {
 		fmt.Println(err.Error())
-		return "error at runGitCmd() !!!", err
+		return "error at runGitCmd()!", err
 	}
 
 	return string(stdout), nil
@@ -117,6 +117,7 @@ func AddCommitPush(c *cli.Context) error {
 // on fresh branch (sets upstream)
 func AddCommitPushRemote(c *cli.Context) error {
 	gitBranch, err := getGitBranch()
+	fmt.Println(gitBranch)
 	if err != nil {
 		return err
 	}
@@ -132,7 +133,7 @@ func AddCommitPushRemote(c *cli.Context) error {
 		},
 		GitCmd{
 			cmd:  "push",
-			args: []string{"--set-upstream", "origin", gitBranch},
+			args: []string{"-u", "origin", gitBranch},
 		},
 	}
 
@@ -228,6 +229,57 @@ func UndoMerge(c *cli.Context) error {
 		GitCmd{
 			cmd:  "log",
 			args: []string{"--oneline"},
+		},
+	}
+
+	info, err := cmds.multipass()
+	if err != nil {
+		return err
+	}
+	fmt.Println(info)
+
+	return nil
+}
+
+// RenameBranch - Renames current branch to passed string
+func RenameBranch(c *cli.Context) error {
+	oldName, err := getGitBranch()
+	oldName = ":" + oldName
+	if err != nil {
+		return err
+	}
+
+	newName := os.Args[2]
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "branch",
+			args: []string{"-m", newName},
+		},
+		GitCmd{
+			cmd:  "push",
+			args: []string{"origin", oldName, newName},
+		},
+		GitCmd{
+			cmd:  "push",
+			args: []string{"origin", "-u", newName},
+		},
+	}
+
+	info, err := cmds.multipass()
+	if err != nil {
+		return err
+	}
+	fmt.Println(info)
+
+	return nil
+}
+
+// CreateLogFile - Dumps git log into file
+func CreateLogFile(c *cli.Context) error {
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "log",
+			args: []string{">>", "log_file.txt"},
 		},
 	}
 
