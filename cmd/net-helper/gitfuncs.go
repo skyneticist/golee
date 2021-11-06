@@ -29,6 +29,7 @@ func (gitCmds GitCmdList) multipass() ([]string, error) {
 			result = append(result, info)
 		}
 	}
+
 	return result, nil
 }
 
@@ -37,7 +38,6 @@ func (gitCmds GitCmdList) multipass() ([]string, error) {
 func runGitCmd(subCmd GitCmd) (string, error) {
 	git := "git"
 	args := []string{}
-
 	args = append(args, subCmd.cmd)
 	args = append(args, subCmd.args...)
 
@@ -64,6 +64,16 @@ func getGitBranch() (string, error) {
 
 // Fullpull - Stash local changes then pull remote changes
 func Fullpull(c *cli.Context) error {
+	projects, err := exec.Command("ls").Output()
+	if err != nil {
+		return err
+	}
+
+	for i, project := range projects {
+		fmt.Println(i)
+		fmt.Println(project)
+	}
+
 	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "stash",
