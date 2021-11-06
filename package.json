@@ -9,18 +9,18 @@
     },
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/skyneticist/net-helper.git"
+      "url": "git+https://github.com/skyneticist/golee.git"
     },
     "author": "Hunter Hartline",
     "license": "MIT",
     "bugs": {
-      "url": "https://github.com/skyneticist/net-helper/issues"
+      "url": "https://github.com/skyneticist/golee/issues"
     },
     "goBinary": {
       "name": "net-helper",
       "path": "./"
     },
-    "homepage": "https://github.com/skyneticist/net-helper#readme",
+    "homepage": "https://github.com/skyneticist/golee#readme",
     "files": [
       "dist",
       "postinstall.js"
