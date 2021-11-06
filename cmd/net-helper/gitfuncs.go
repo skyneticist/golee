@@ -10,23 +10,38 @@ import (
 
 // multipass - Receiver function that takes a GitCmdList ([]string) and iterates
 // over each entry, passing the entry to runGitCmd
-func (gitCmds GitCmdList) multipass() ([]string, error) {
+func (gitCmds GitCmdList) multipass(full ...string) ([]string, error) {
 	if len(gitCmds) < 1 {
 		panic("no arguments found! must have GitCmd entries!")
 	}
 
 	var result []string
+	var cmdDir string
 
 	for i, gitCmd := range gitCmds {
-		info, err := runGitCmd(gitCmd)
-		if err != nil {
-			return []string{"Error occurred in multipass function - line 13 in gitfuncs.go"}, err
-		}
-		if i == 0 {
-			info = "\n" + info
-			result = append(result, info)
+		if len(full) > 0 {
+			cmdDir = full[0]
+			info, err := runGitCmdOnDirs(gitCmd, cmdDir)
+			if err != nil {
+				return []string{"Error occurred in multipass function - line 13 in gitfuncs.go"}, err
+			}
+			if i == 0 {
+				info = "\n" + info
+				result = append(result, info)
+			} else {
+				result = append(result, info)
+			}
 		} else {
-			result = append(result, info)
+			info, err := runGitCmd(gitCmd)
+			if err != nil {
+				return []string{"Error occurred in multipass function - line 13 in gitfuncs.go"}, err
+			}
+			if i == 0 {
+				info = "\n" + info
+				result = append(result, info)
+			} else {
+				result = append(result, info)
+			}
 		}
 	}
 
@@ -50,6 +65,23 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 	return string(stdout), nil
 }
 
+func runGitCmdOnDirs(subCmd GitCmd, dir string) (string, error) {
+	git := "git"
+	args := []string{}
+	args = append(args, subCmd.cmd)
+	args = append(args, subCmd.args...)
+
+	cmd := exec.Command(git, args...)
+	cmd.Dir = dir
+
+	stdout, err := cmd.Output()
+	if err != nil {
+		return "error at runGitCmd()!", err
+	}
+
+	return string(stdout), nil
+}
+
 // getGitBranch - Grabs current checkedout branch
 func getGitBranch() (string, error) {
 	subCmd := []string{"rev-parse", "--abbrev-ref", "HEAD"}
@@ -64,16 +96,6 @@ func getGitBranch() (string, error) {
 
 // Fullpull - Stash local changes then pull remote changes
 func Fullpull(c *cli.Context) error {
-	projects, err := exec.Command("ls").Output()
-	if err != nil {
-		return err
-	}
-
-	for i, project := range projects {
-		fmt.Println(i)
-		fmt.Println(project)
-	}
-
 	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "stash",
@@ -89,11 +111,24 @@ func Fullpull(c *cli.Context) error {
 		},
 	}
 
-	info, err := cmds.multipass()
+	pwd, err := exec.Command("pwd").Output()
 	if err != nil {
 		return err
 	}
-	fmt.Println(info)
+
+	projects, err := exec.Command("ls").Output()
+	if err != nil {
+		return err
+	}
+
+	for _, project := range projects {
+		cmdDir := string(pwd) + string(project)
+		info, err := cmds.multipass(cmdDir)
+		if err != nil {
+			return err
+		}
+		fmt.Println(info)
+	}
 
 	return nil
 }
