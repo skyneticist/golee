@@ -1,0 +1,31 @@
+{
+    "name": "@skyneticist/git-golee",
+    "version": "1.0.0",
+    "description": "A cli for git productivity",
+    "main": "index.js",
+    "scripts": {
+      "postinstall": "node postinstall.js install",
+      "preuninstall": "node postinstall.js uninstall"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/skyneticist/net-helper.git"
+    },
+    "author": "Hunter Hartline",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/skyneticist/net-helper/issues"
+    },
+    "goBinary": {
+      "name": "gg",
+      "path": "./bin"
+    },
+    "homepage": "https://github.com/skyneticist/net-helper#readme",
+    "files": [
+      "dist",
+      "postinstall.js"
+    ],
+    "dependencies": {
+      "mkdirp": "^1.0.4"
+    }
+  }
