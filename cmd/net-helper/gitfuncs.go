@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 
 	cli "github.com/urfave/cli/v2"
 )
@@ -273,7 +274,7 @@ func CreateLogFile(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "log",
-			args: []string{">>", "log_file.txt"},
+			args: nil,
 		},
 	}
 
@@ -281,7 +282,18 @@ func CreateLogFile(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println(info)
+	writeOutputToFile(info)
 
 	return nil
+}
+
+func writeOutputToFile(data []string) {
+	var bytes []byte
+	for _, d := range data {
+		bt := []byte(d)
+		bytes = append(bytes, bt...)
+	}
+	home, _ := os.UserHomeDir()
+	logLocation := filepath.Join(home, "git_log.txt")
+	os.WriteFile(logLocation, bytes, 0644)
 }
