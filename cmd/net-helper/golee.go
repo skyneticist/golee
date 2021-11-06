@@ -29,6 +29,8 @@ func main() {
 			&SoftResetCmd,
 			&HardResetCmd,
 			&UndoMergeCmd,
+			&RenameBranchCmd,
+			&CreateLogFileCmd,
 		},
 		Flags:                []cli.Flag{},
 		EnableBashCompletion: true,

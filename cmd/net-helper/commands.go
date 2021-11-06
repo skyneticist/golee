@@ -201,3 +201,59 @@ var UndoMergeCmd = cli.Command{
 	HelpName:               "gg um",
 	CustomHelpTemplate:     "",
 }
+
+// RenameBranchCmd - Cli Command that invokes RenameBranch git function
+var RenameBranchCmd = cli.Command{
+	Name:        "renameBranch",
+	Aliases:     []string{"rn", "rb"},
+	Usage:       "gg rn [new_branch_name]",
+	UsageText:   "rename current branch to given name",
+	Description: "renames current checkedout branch to the user passed name",
+	ArgsUsage:   "",
+	Category:    "",
+	BashComplete: func(c *cli.Context) {
+		fmt.Fprintf(c.App.Writer, "--better\n")
+	},
+	OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
+		fmt.Fprintf(c.App.Writer, "for shame\n")
+		return err
+	},
+	Action:                 RenameBranch,
+	Subcommands:            []*cli.Command{},
+	Flags:                  []cli.Flag{},
+	SkipFlagParsing:        false,
+	HideHelp:               false,
+	HideHelpCommand:        false,
+	Hidden:                 false,
+	UseShortOptionHandling: false,
+	HelpName:               "gg rn",
+	CustomHelpTemplate:     "",
+}
+
+// CreateLogFileCmd - Cli Command that invokes CreateLogFile git function
+var CreateLogFileCmd = cli.Command{
+	Name:        "createLogFile",
+	Aliases:     []string{"log", "lf"},
+	Usage:       "gg log",
+	UsageText:   "create git log file",
+	Description: "dumps git log output into file",
+	ArgsUsage:   "",
+	Category:    "",
+	BashComplete: func(c *cli.Context) {
+		fmt.Fprintf(c.App.Writer, "--better\n")
+	},
+	OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
+		fmt.Fprintf(c.App.Writer, "for shame\n")
+		return err
+	},
+	Action:                 CreateLogFile,
+	Subcommands:            []*cli.Command{},
+	Flags:                  []cli.Flag{},
+	SkipFlagParsing:        false,
+	HideHelp:               false,
+	HideHelpCommand:        false,
+	Hidden:                 false,
+	UseShortOptionHandling: false,
+	HelpName:               "gg log",
+	CustomHelpTemplate:     "",
+}
