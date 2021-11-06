@@ -8,7 +8,7 @@ release:
     owner: skyneticist
     name: net-helper
 builds:
-  - id: example-cli-darwin-amd64
+  - id: gg-darwin-amd64
     ldflags:
       - -s -w -X github.com/skyneticist/net-helper/pkg/version.Version={{.Version}}
     binary: gg
