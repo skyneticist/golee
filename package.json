@@ -17,8 +17,8 @@
       "url": "https://github.com/skyneticist/net-helper/issues"
     },
     "goBinary": {
-      "name": "gg",
-      "path": "./bin"
+      "name": "net-helper",
+      "path": "./"
     },
     "homepage": "https://github.com/skyneticist/net-helper#readme",
     "files": [
