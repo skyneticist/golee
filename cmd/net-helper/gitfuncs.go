@@ -286,7 +286,7 @@ func SetGitAuthors(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "config",
-			args: []string{"user.name", fmtAuthors},
+			args: []string{"--global", "user.name", fmtAuthors},
 		},
 	}
 
