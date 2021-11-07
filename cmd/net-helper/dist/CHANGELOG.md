@@ -1,3 +1,3 @@
 ## Changelog
 
-6175df0 do not forget to build in between all steps
+508e2c1 fix typo in path
