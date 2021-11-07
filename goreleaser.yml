@@ -34,7 +34,7 @@ builds:
     ldflags:
       - -s -w -X github.com/skyneticist/net-helper/pkg/version.Version={{.Version}}
     main: ./cmd/net-helper/golee.go
-    binary: net-helper
+    binary: golee
     env:
       - CGO_ENABLED=0
     goos:
