@@ -39,6 +39,12 @@ The main goals of this application are:
 # Installing
 -----------
 
+### npm install is work in progress
+Of course, you can clone the repository and set up the path for the included exe or do:
+
+`go build` in this directory: `./cmd/net-helper/`
+
+
 `npm i -g @skyneticist/git-golee@latest`
 
 
