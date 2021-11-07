@@ -8,7 +8,7 @@ release:
     owner: skyneticist
     name: net-helper
 builds:
-  - id: gg-darwin-amd64
+  - id: net-helper-darwin-amd64
     ldflags:
       - -s -w -X github.com/skyneticist/net-helper/pkg/version.Version={{.Version}}
     binary: net-helper
@@ -19,7 +19,7 @@ builds:
       - darwin
     goarch:
       - amd64
-  - id: gg-linux-amd64
+  - id: net-helper-linux-amd64
     ldflags:
       - -s -w -X github.com/skyneticist/net-helper/pkg/version.Version={{.Version}}
     main: ./cmd/net-helper/golee.go
@@ -30,7 +30,7 @@ builds:
       - linux
     goarch:
       - amd64
-  - id: gg-windows-amd64
+  - id: net-helper-windows-amd64
     ldflags:
       - -s -w -X github.com/skyneticist/net-helper/pkg/version.Version={{.Version}}
     main: ./cmd/net-helper/golee.go
