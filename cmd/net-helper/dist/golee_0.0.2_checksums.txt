@@ -1,5 +1,0 @@
-09f5a2d246d78dec8a67ef8c8d36e30105434b85b062bb678e9cf321bde5d02b  golee_0.0.2_linux_386.tar.gz
-29ee0b715bb2e306012dcd1ef2576a703f18a9319384ca9d2200c38a640a0151  golee_0.0.2_darwin_amd64.tar.gz
-9eabfe07438da57fe05de9d4d6b989b1198e1e17155c8c491af79350932b5625  golee_0.0.2_darwin_arm64.tar.gz
-eee9c7c0b4e80e0ecc1a4e6261f2c10b7d1b6fc696c674a36067c753a17e36a5  golee_0.0.2_linux_amd64.tar.gz
-ef3a311cb75d2fbb13fa333cb5beef03652885d61bd1d77cf639d9a4c64faa68  golee_0.0.2_linux_arm64.tar.gz

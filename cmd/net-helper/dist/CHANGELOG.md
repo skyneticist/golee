@@ -1,3 +1,3 @@
 ## Changelog
 
-985e915 try go build before releaser
+97afa6a current release (0.0.3) successful
