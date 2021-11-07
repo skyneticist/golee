@@ -30,6 +30,7 @@ func main() {
 			&HardResetCmd,
 			&UndoMergeCmd,
 			&RenameBranchCmd,
+			&SetGitAuthorsCmd,
 			&CreateLogFileCmd,
 		},
 		Flags:                []cli.Flag{},

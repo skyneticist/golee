@@ -269,6 +269,36 @@ func RenameBranch(c *cli.Context) error {
 	return nil
 }
 
+func SetGitAuthors(c *cli.Context) error {
+	argslength := len(os.Args[1:])
+	if argslength < 2 {
+		fmt.Println("need to pass at least one author.")
+		return nil
+	}
+
+	var fmtAuthors string
+	if argslength > 2 {
+		fmtAuthors = os.Args[2] + ", " + os.Args[3]
+	} else {
+		fmtAuthors = os.Args[2]
+	}
+
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "config",
+			args: []string{"--global", "user.name", fmtAuthors},
+		},
+	}
+
+	info, err := cmds.multipass()
+	if err != nil {
+		return err
+	}
+
+	fmt.Println(info)
+	return nil
+}
+
 // CreateLogFile - Dumps git log into file
 func CreateLogFile(c *cli.Context) error {
 	cmds := GitCmdList{
