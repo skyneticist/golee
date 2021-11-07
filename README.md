@@ -4,7 +4,7 @@ cli tool for git productivity
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/skyneticist/golee)](https://goreportcard.com/report/github.com/skyneticist/golee)
 
-This cli tool is intended to make frequent git work in the command line more convenient and less time-consuming.
+This cli tool is intended to make frequent git work in the command line even less time-consuming.
 
 ### Without git-golee
 ```
