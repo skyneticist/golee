@@ -6,6 +6,18 @@ cli tool for git productivity
 
 This cli tool is intended to make frequent git work in the command line more convenient and less time-consuming.
 
+### Without git-golee
+```
+> git add .
+> git commit -m "commit message goes here"
+> git push --set-upstream origin branchName
+```
+
+### With git-golee 
+```
+> gg acpr "commit message goes here"
+```
+
 
 <img src="https://storage.googleapis.com/gopherizeme.appspot.com/gophers/c31240b190ee8485d98aff995b22f8cc4edc8d10.png" width="250" height="250">
 <!-- ![customgopher hh](https://storage.googleapis.com/gopherizeme.appspot.com/gophers/c31240b190ee8485d98aff995b22f8cc4edc8d10.png | ) -->
