@@ -230,6 +230,34 @@ var RenameBranchCmd = cli.Command{
 	CustomHelpTemplate:     "",
 }
 
+// SetGitAuthorsCmd - Cli Command that invokes SetGitAuthors git function
+var SetGitAuthorsCmd = cli.Command{
+	Name:        "setGitAuthors",
+	Aliases:     []string{"auth", "aa", "authors", "pair"},
+	Usage:       "gg pair [author1] [author2] ",
+	UsageText:   "change git authors for commits",
+	Description: "changes git config user.name to the author pair",
+	ArgsUsage:   "",
+	Category:    "",
+	BashComplete: func(c *cli.Context) {
+		fmt.Fprintf(c.App.Writer, "--better\n")
+	},
+	OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
+		fmt.Fprintf(c.App.Writer, "for shame\n")
+		return err
+	},
+	Action:                 SetGitAuthors,
+	Subcommands:            []*cli.Command{},
+	Flags:                  []cli.Flag{},
+	SkipFlagParsing:        false,
+	HideHelp:               false,
+	HideHelpCommand:        false,
+	Hidden:                 false,
+	UseShortOptionHandling: false,
+	HelpName:               "gg pair [author1] [author2]",
+	CustomHelpTemplate:     "",
+}
+
 // CreateLogFileCmd - Cli Command that invokes CreateLogFile git function
 var CreateLogFileCmd = cli.Command{
 	Name:        "createLogFile",
