@@ -142,7 +142,7 @@ async function install(callback) {
     if (!opts) return callback(INVALID_INPUT);
     mkdirp.sync(opts.binPath);
     console.info(`Copying the relevant binary for your platform ${process.platform}`);
-    const src= `./cmd/net-helper/dist/golee_${ARCH_MAPPING[process.platform]}_${process.arch}/${opts.binName}`;
+    const src= `./cmd/net-helper/dist/golee_${process.platform}_${ARCH_MAPPING[process.arch]}/${opts.binName}`;
     await execShellCommand(`cp ${src} ${opts.binPath}/${opts.binName}`);
     await verifyAndPlaceBinary(opts.binName, opts.binPath, callback);
 }
