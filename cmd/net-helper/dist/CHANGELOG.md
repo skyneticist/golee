@@ -1,3 +1,3 @@
 ## Changelog
 
-c3bc90a trying golee binary name for current config
+6175df0 do not forget to build in between all steps
