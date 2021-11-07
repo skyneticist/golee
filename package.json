@@ -17,7 +17,7 @@
         "url": "https://github.com/skyneticist/golee/issues"
     },
     "goBinary": {
-        "name": "net-helper",
+        "name": "golee",
         "path": "./bin"
     },
     "homepage": "https://github.com/skyneticist/golee#readme",
