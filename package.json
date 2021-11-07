@@ -1,6 +1,6 @@
 {
     "name": "@skyneticist/git-golee",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "A cli tool for git productivity\n\nSee GitHub for simple explanation",
     "main": "index.js",
     "scripts": {
@@ -8,13 +8,13 @@
         "preuninstall": "node postinstall.js uninstall"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/skyneticist/golee.git"
+        "type": "git",
+        "url": "git+https://github.com/skyneticist/golee.git"
     },
     "author": "Hunter Hartline",
     "license": "MIT",
     "bugs": {
-      "url": "https://github.com/skyneticist/golee/issues"
+        "url": "https://github.com/skyneticist/golee/issues"
     },
     "goBinary": {
         "name": "net-helper",
