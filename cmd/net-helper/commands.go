@@ -6,6 +6,34 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
+// HelpCmd - Cli Command that invokes cli helper
+// var HelpCmd cli.Command = cli.Command{
+// 	Name:        "help",
+// 	Aliases:     []string{"help", "h"},
+// 	Usage:       "gg h",
+// 	UsageText:   "display help page for golee",
+// 	Description: "help command displays usage and info",
+// 	ArgsUsage:   "",
+// 	Category:    "Git Productivity Helper",
+// 	BashComplete: func(c *cli.Context) {
+// 		fmt.Fprintf(c.App.Writer, "--better\n")
+// 	},
+// 	OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
+// 		fmt.Fprintf(c.App.Writer, "for shame\n")
+// 		return err
+// 	},
+// 	Action:                 Help,
+// 	Subcommands:            []*cli.Command{},
+// 	Flags:                  []cli.Flag{},
+// 	SkipFlagParsing:        false,
+// 	HideHelp:               false,
+// 	HideHelpCommand:        false,
+// 	Hidden:                 false,
+// 	UseShortOptionHandling: false,
+// 	HelpName:               "",
+// 	CustomHelpTemplate:     "",
+// }
+
 // FullPullCmd - Cli Command that invokes FullPull git function
 var FullPullCmd cli.Command = cli.Command{
 	Name:        "fullpull",
