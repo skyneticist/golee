@@ -1,4 +1,4 @@
-# git-golee
+# golee
 
 cli tool for git productivity
 
@@ -10,14 +10,14 @@ cli tool for git productivity
 
 This cli tool is intended to make frequent git work in the command line even less time-consuming.
 
-### Without git-golee
+### Without golee
 ```
 > git add .
 > git commit -m "commit message goes here"
 > git push --set-upstream origin branchName
 ```
 
-### With git-golee 
+### With golee 
 ```
 > golee acpr "commit message goes here"
 ```
@@ -68,6 +68,8 @@ This section explains how to simply install the git-golee tool using node packag
 
 That's it. Now you have access to git-golee via `golee`
 
+note: *some *nix system users may experience permission denied! To remedy this, simply run `chmod +X` on the executable*
+
 One thing that IS nice about this tool is how easy it is to install and to keep updated. Also, the size of the executable is small and the way its being added to PATH is fast, safe, convenient.
 
 To achieve all of this, Goreleaser and a custom postinstall script is used in combination with a package.json file. This essentially allows for a platform-independent way to install the git-golee tool with a simple npm command.
@@ -102,7 +104,7 @@ One of the most often set of commands used when working on a user story is:
 ```
 
 
-With git-golee, we can do the same with:
+With golee, we can do the same with:
 ``` 
  > golee acp "commit message here"
 ```
@@ -123,7 +125,7 @@ Similarly, when pushing a fresh remote, we usually would do:
   > git push --set-upstream origin <branch>` or `git push -u origin HEAD
 ```
 
-With git-golee:
+With golee:
 
   `> golee acpr "commit message here"`
   
