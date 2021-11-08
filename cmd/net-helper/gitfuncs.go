@@ -63,6 +63,21 @@ func getGitBranch() (string, error) {
 	return string(stdout), nil
 }
 
+func Help(c *cli.Context) error {
+	cli.ShowAppHelp(c)
+	cli.ShowCommandHelp(c, "also-nope")
+	cli.ShowSubcommandHelp(c)
+	cli.ShowCompletions(c)
+	cli.ShowCommandCompletions(c, "nope")
+
+	c.Command.FullName()
+	c.Command.HasName("gol")
+	c.Command.Names()
+	c.Command.VisibleFlags()
+
+	return nil
+}
+
 // Fullpull - Stash local changes then pull remote changes
 func Fullpull(c *cli.Context) error {
 	cmds := GitCmdList{
