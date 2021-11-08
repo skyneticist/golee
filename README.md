@@ -2,6 +2,8 @@
 
 cli tool for git productivity
 
+*written in go and packaged for consumption via npmjs.com*
+
 [![Go Report Card](https://goreportcard.com/badge/github.com/skyneticist/golee)](https://goreportcard.com/report/github.com/skyneticist/golee)
 
 <img src="https://storage.googleapis.com/gopherizeme.appspot.com/gophers/c31240b190ee8485d98aff995b22f8cc4edc8d10.png" width="250" height="250">
