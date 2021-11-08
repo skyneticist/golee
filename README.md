@@ -37,13 +37,22 @@ The main goals of this application are:
   ```
  
 # Installing
------------
-
 ### npm install is work in progress
 Of course, you can clone the repository and set up the path for the included exe or do:
 
-`go build` in this directory: `./cmd/net-helper/`
+`go install` in this directory: `./cmd/net-helper/`
 
+That's it. Now you can run golee using:
+
+`> net-helper`
+
+NOTE: The name `net-helper` is temporary and will be `gg` in the future.
+
+
+## Simpler Install [WIP!]
+
+This section explains how to simply install the git-golee tool using node package registry (npm). Please note, this is currently being developed and does not work as intended.
+Will update readme when able.
 
 `npm i -g @skyneticist/git-golee@latest`
 
@@ -74,7 +83,11 @@ One of the most often set of commands used when working on a user story is:
   
 With git-golee, we can do the same with:
  
-  `gg acp "message here"`
+ `net-helper acp "commit message here"`
+ 
+ or
+ 
+ `gg acp "commit message here"`
   
 Similarly, when pushing a fresh remote, we usually would do:
 
@@ -86,7 +99,11 @@ Similarly, when pushing a fresh remote, we usually would do:
   
 With git-golee:
 
-  `gg acpr "message here"`
+  `net-helper acpr "commit message here"`
+  
+or
+
+  `gg acpr "commit message here"`
   
 Renaming a branch can be a bit burdensome:
   
@@ -94,4 +111,9 @@ Renaming a branch can be a bit burdensome:
 
 Alternatively, we could do:
 
+  `net-helper rn <updatedBranchName>`
+  
+or
+  
   `gg rn <updatedBranchName>`
+  
