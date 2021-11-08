@@ -39,11 +39,13 @@ func main() {
 			fmt.Fprintf(c.App.Writer, "--better\n")
 		},
 		Action: func(c *cli.Context) error {
-			c.Command.FullName()
-			c.Command.HasName("gol")
-			c.Command.Names()
-			c.Command.VisibleFlags()
+			fmt.Println()
+			fmt.Println("Welcom to git-golee!")
+			cli.ShowVersion(c)
+			fmt.Println()
 
+			// cli.DefaultAppComplete(c)
+			fmt.Println("For usage info, run 'golee help'")
 			return nil
 		},
 		OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
