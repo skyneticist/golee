@@ -18,7 +18,7 @@ func InitApp() {
 	cli.VersionFlag = &cli.BoolFlag{Name: "print-version", Aliases: []string{"V", "v", "ver"}}
 
 	cli.HelpPrinter = func(w io.Writer, templ string, data interface{}) {
-		fmt.Fprintf(w, "\nNever fear, HELP is here 🚀\n \nAdd, Commit, Push in one command:           golee acp [commit message here]\n\nAdd, Commit, Push a new remote branch:      golee acpr [commit message is here]\n\nChange git authors for pairing:             golee auth [author1] [author2]\n\nUndo last commit, preserving changes:       golee soft\n\nUndo last commit, destroying changes:       golee hard\n\nStash, Pull, Pop:                           golee spp\n\nRename current branch:                      golee rn [new_branch_name]\n\n")
+		fmt.Fprintf(w, "\n\nNever fear, HELP is here 🚀\n \ngit-golee help prompt\n \n\ndescription                                   command\n \n⚡Add, Commit, Push in one command:           golee acp [commit message here]\n\n⚡Add, Commit, Push a new remote branch:      golee acpr [commit message is here]\n\n⚡Change git authors for pairing:             golee auth [author1] [author2]\n\n⚡Undo last commit, preserving changes:       golee soft\n\n⚡Undo last commit, destroying changes:       golee hard\n\n⚡Stash, Pull, Pop:                           golee spp\n\n⚡Rename current branch:                      golee rn [new_branch_name]\n\n📚 Documentation can be found here: https://github.com/skyneticist/golee\n")
 	}
 	cli.VersionPrinter = func(c *cli.Context) {
 		fmt.Fprintf(c.App.Writer, "v%s\n", c.App.Version)
