@@ -69,51 +69,73 @@ To achieve all of this, Goreleaser and a custom postinstall script is used in co
 
 # Usage 
 
+*invoke*
+
 `net-helper`
+
+or
 
 `gg`
 
-One of the most often set of commands used when working on a user story is:
-  
-  `git add .`
-  
-  `git commit -m "message here"`
-  
-  `git push`
-  
-With git-golee, we can do the same with:
- 
- `net-helper acp "commit message here"`
- 
- or
- 
- `gg acp "commit message here"`
-  
-Similarly, when pushing a fresh remote, we usually would do:
+*commands*
 
-  `git add .`
+One of the most often set of commands used when working on a user story is:
+```  
+  > git add .
+  
+  > git commit -m "message here"
+  
+  > git push
+```
+
+
+With git-golee, we can do the same with:
+``` 
+ > net-helper acp "commit message here"
+```
+
+or
  
-  `git commit -m "message here"`
+``` 
+ > gg acp "commit message here"
+```
+
+
+Similarly, when pushing a fresh remote, we usually would do:
+```
+  > git add .
+ 
+  > git commit -m "message here"
   
-  `git push --set-upstream origin <branch>` or `git push -u origin HEAD`
-  
+  > git push --set-upstream origin <branch>` or `git push -u origin HEAD
+```
+
 With git-golee:
 
-  `net-helper acpr "commit message here"`
+  `> net-helper acpr "commit message here"`
   
 or
 
-  `gg acpr "commit message here"`
+  `> gg acpr "commit message here"`
   
-Renaming a branch can be a bit burdensome:
-  
-  ``
+Renaming a branch can be a bit burdensome,
+but not with git-golee: 
 
-Alternatively, we could do:
-
-  `net-helper rn <updatedBranchName>`
+  `> net-helper rn <updatedBranchName>`
   
 or
   
-  `gg rn <updatedBranchName>`
+  `> gg rn <updatedBranchName>`
+  
+
+# Other Useful Commands
+
+There are a few other useful commands available for taking care of things like configuration and logging. 
+
+### Set multiple authors globally in git config
+
+`> net-helper auth <author1> <author2>`
+
+`> gg auth <author1> <author2>`
+
   
