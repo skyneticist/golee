@@ -80,6 +80,8 @@ To achieve all of this, Goreleaser and a custom postinstall script is used in co
 
 # Usage 
 
+![image](https://user-images.githubusercontent.com/81132371/140797442-2318f9a3-4c98-421d-9287-cac4673a5a30.png)
+
 *invoke*
 
 `golee`
