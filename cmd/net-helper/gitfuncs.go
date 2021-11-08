@@ -63,21 +63,6 @@ func getGitBranch() (string, error) {
 	return string(stdout), nil
 }
 
-func Help(c *cli.Context) error {
-	cli.ShowAppHelp(c)
-	cli.ShowCommandHelp(c, "also-nope")
-	cli.ShowSubcommandHelp(c)
-	cli.ShowCompletions(c)
-	cli.ShowCommandCompletions(c, "nope")
-
-	c.Command.FullName()
-	c.Command.HasName("gol")
-	c.Command.Names()
-	c.Command.VisibleFlags()
-
-	return nil
-}
-
 // Fullpull - Stash local changes then pull remote changes
 func Fullpull(c *cli.Context) error {
 	cmds := GitCmdList{
@@ -284,6 +269,7 @@ func RenameBranch(c *cli.Context) error {
 	return nil
 }
 
+// SetGitAuthors - Sets authors passed for git commits
 func SetGitAuthors(c *cli.Context) error {
 	argslength := len(os.Args[1:])
 	if argslength < 2 {
@@ -311,6 +297,23 @@ func SetGitAuthors(c *cli.Context) error {
 	}
 
 	fmt.Println(info)
+	return nil
+}
+
+func CreateCheckoutBranch(c *cli.Context) error {
+	branchName := os.Args[2]
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "checkout",
+			args: []string{"-b", branchName},
+		},
+	}
+	info, err := cmds.multipass()
+	if err != nil {
+		return err
+	}
+	fmt.Println(info)
+
 	return nil
 }
 

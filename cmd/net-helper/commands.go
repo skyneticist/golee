@@ -19,7 +19,7 @@ var FullPullCmd cli.Command = cli.Command{
 		fmt.Fprintf(c.App.Writer, "--better\n")
 	},
 	OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
-		fmt.Fprintf(c.App.Writer, "for shame\n")
+		fmt.Fprintf(c.App.Writer, "hmm... not sure what to do. Please run `golee h`!\n")
 		return err
 	},
 	Action:                 Fullpull,
@@ -255,6 +255,29 @@ var SetGitAuthorsCmd = cli.Command{
 	Hidden:                 false,
 	UseShortOptionHandling: false,
 	HelpName:               "gg pair [author1] [author2]",
+	CustomHelpTemplate:     "",
+}
+
+// CreateCheckoutBranch - Cli command that invokes CreateCheckoutBranch git function
+var CreateCheckoutBranchCmd = cli.Command{
+	Name:        "createCheckoutBranch",
+	Aliases:     []string{"nb", "ccb", "bb"},
+	Usage:       "gg bb",
+	UsageText:   "",
+	Description: "",
+	ArgsUsage:   "",
+	Category:    "",
+	BashComplete: func(*cli.Context) {
+	},
+	Action:                 CreateCheckoutBranch,
+	Subcommands:            []*cli.Command{},
+	Flags:                  []cli.Flag{},
+	SkipFlagParsing:        false,
+	HideHelp:               false,
+	HideHelpCommand:        false,
+	Hidden:                 false,
+	UseShortOptionHandling: false,
+	HelpName:               "",
 	CustomHelpTemplate:     "",
 }
 
