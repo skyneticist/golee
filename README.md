@@ -38,7 +38,12 @@ The main goals of this application are:
  
 # Installing
 
-Of course, you can clone the repository and set up the path for the included exe or do:
+There are multiple ways to download and install the git-golee cli tool. The preferred method is to use npm via the command-line--a lot of work was put into making
+this tool as portable and convenient for others to use on ANY platform! 
+
+Of course, you can clone the repository (or just download the necessary binary) and set the binary up in your environment PATH.
+
+Or 
 
 `go install` in this directory: `./cmd/net-helper/`
 
@@ -46,8 +51,12 @@ That's it. Now you can run golee using:
 
 `> golee`
 
+For the help prompt:
 
-## Simpler Install [WIP!]
+`> golee h`
+
+
+## Simpler Install [Preferred Method!]
 
 This section explains how to simply install the git-golee tool using node package registry (npm). This is the preferred method! 
 
@@ -59,6 +68,8 @@ That's it. Now you have access to git-golee via `golee`
 One thing that IS nice about this tool is how easy it is to install and to keep updated. Also, the size of the executable is small and the way its being added to PATH is fast, safe, convenient.
 
 To achieve all of this, Goreleaser and a custom postinstall script is used in combination with a package.json file. This essentially allows for a platform-independent way to install the git-golee tool with a simple npm command.
+
+*Please NOTE: there are way too many versions published here (I'm currently working on cleaning it up) - just know that v2.0.0 and later are working!*
 
 [Packgage on NPM](https://www.npmjs.com/package/@skyneticist/git-golee)
 
