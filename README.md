@@ -15,7 +15,7 @@ This cli tool is intended to make frequent git work in the command line even les
 
 ### With git-golee 
 ```
-> gg acpr "commit message goes here"
+> golee acpr "commit message goes here"
 ```
 
 
@@ -37,27 +37,24 @@ The main goals of this application are:
   ```
  
 # Installing
-### npm install is work in progress
+
 Of course, you can clone the repository and set up the path for the included exe or do:
 
 `go install` in this directory: `./cmd/net-helper/`
 
 That's it. Now you can run golee using:
 
-`> net-helper`
-
-NOTE: The name `net-helper` is temporary and will be `gg` in the future.
+`> golee`
 
 
 ## Simpler Install [WIP!]
 
-This section explains how to simply install the git-golee tool using node package registry (npm). Please note, this is currently being developed and does not work as intended.
-Will update readme when able.
+This section explains how to simply install the git-golee tool using node package registry (npm). This is the preferred method! 
+
 
 `npm i -g @skyneticist/git-golee@latest`
 
-
-That's it. Now you have access to git-golee via `net-helper`
+That's it. Now you have access to git-golee via `golee`
 
 One thing that IS nice about this tool is how easy it is to install and to keep updated. Also, the size of the executable is small and the way its being added to PATH is fast, safe, convenient.
 
@@ -65,13 +62,13 @@ To achieve all of this, Goreleaser and a custom postinstall script is used in co
 
 [Packgage on NPM](https://www.npmjs.com/package/@skyneticist/git-golee)
 
-*Currently working on a way to set the command to `gg` instead of `net-helper` without setting an alias*
+*Currently working on a way to set the command to `gg` instead of `golee` without setting an alias*
 
 # Usage 
 
 *invoke*
 
-`net-helper`
+`golee`
 
 or
 
@@ -91,7 +88,7 @@ One of the most often set of commands used when working on a user story is:
 
 With git-golee, we can do the same with:
 ``` 
- > net-helper acp "commit message here"
+ > golee acp "commit message here"
 ```
 
 or
@@ -112,7 +109,7 @@ Similarly, when pushing a fresh remote, we usually would do:
 
 With git-golee:
 
-  `> net-helper acpr "commit message here"`
+  `> golee acpr "commit message here"`
   
 or
 
@@ -121,7 +118,7 @@ or
 Renaming a branch can be a bit burdensome,
 but not with git-golee: 
 
-  `> net-helper rn <updatedBranchName>`
+  `> golee rn <updatedBranchName>`
   
 or
   
@@ -134,7 +131,7 @@ There are a few other useful commands available for taking care of things like c
 
 ### Set multiple authors globally in git config
 
-`> net-helper auth <author1> <author2>`
+`> golee auth <author1> <author2>`
 
 `> gg auth <author1> <author2>`
 
