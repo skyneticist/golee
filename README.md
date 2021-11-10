@@ -28,9 +28,7 @@ This cli tool is intended to make frequent git work in the command line even les
 
 The main goals of this application are:
 
-  ```
-  - To ~significantly reduce the time typing when working in git cli, without relying on hooks 
-  Note: (since I work on a team for a big company, it's preferred to have some versatility here)
+  - Reduce the time typing when using git cli, without using hooks 
 
   - Easy to use
   - To be as lightweight and efficient/performant as possible
@@ -38,8 +36,7 @@ The main goals of this application are:
   - Easy to distribute/release
   - Easy to update
   - Easy to work on
-  ```
- 
+   
 # Installing
 
 There are multiple ways to download and install the git-golee cli tool. The preferred method is to use npm via the command-line--a lot of work was put into making
