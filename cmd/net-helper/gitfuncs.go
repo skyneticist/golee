@@ -113,7 +113,7 @@ func checkIfRemoteExists() bool {
 }
 
 func openprompt() bool {
-	fmt.Println("This is a fresh remote. Would you like to set upstream tracking?")
+	fmt.Print("This is a fresh remote. Would you like to set upstream tracking? (y/n)")
 	reader := bufio.NewReader(os.Stdin)
 	rune, _, err := reader.ReadRune()
 	if err != nil {
