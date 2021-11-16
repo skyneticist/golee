@@ -230,6 +230,27 @@ var RenameBranchCmd = cli.Command{
 	CustomHelpTemplate:     "",
 }
 
+// SearchLogPerMessageCmd - Cli command that invokes SetLogPerMessage git function
+var SearchLogPerMessageCmd = cli.Command{
+	Name:                   "",
+	Aliases:                []string{"search", "sl", "s"},
+	Usage:                  "",
+	UsageText:              "",
+	Description:            "",
+	ArgsUsage:              "",
+	Category:               "Git Productivity Tool",
+	Action:                 SearchLogPerMessage,
+	Subcommands:            []*cli.Command{},
+	Flags:                  []cli.Flag{},
+	SkipFlagParsing:        false,
+	HideHelp:               false,
+	HideHelpCommand:        false,
+	Hidden:                 false,
+	UseShortOptionHandling: false,
+	HelpName:               "SearchLogPerMessage",
+	CustomHelpTemplate:     "",
+}
+
 // SetGitAuthorsCmd - Cli Command that invokes SetGitAuthors git function
 var SetGitAuthorsCmd = cli.Command{
 	Name:        "setGitAuthors",

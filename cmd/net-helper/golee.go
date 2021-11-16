@@ -30,6 +30,8 @@ func main() {
 			&HardResetCmd,
 			&UndoMergeCmd,
 			&RenameBranchCmd,
+			&CreateCheckoutBranchCmd,
+			&SearchLogPerMessageCmd,
 			&SetGitAuthorsCmd,
 			&CreateLogFileCmd,
 		},
@@ -43,7 +45,7 @@ func main() {
 		},
 		Action: func(c *cli.Context) error {
 			fmt.Println()
-			fmt.Println("Welcom to git-golee!")
+			fmt.Println("Welcome to git-golee!")
 			cli.ShowVersion(c)
 			fmt.Println()
 
@@ -57,7 +59,7 @@ func main() {
 		},
 		Compiled: time.Time{},
 		Authors: []*cli.Author{
-			{Name: "skyneticist", Email: "hunterhartline@mail"},
+			{Name: "skyneticist", Email: "hunterhartline@gmail.com"},
 		},
 		Copyright: "2021",
 		Reader:    nil,

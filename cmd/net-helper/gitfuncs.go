@@ -1,10 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
-	"path/filepath"
 
 	cli "github.com/urfave/cli/v2"
 )
@@ -89,8 +89,53 @@ func Fullpull(c *cli.Context) error {
 	return nil
 }
 
+func checkIfRemoteExists() bool {
+	ac := GitCmdList{
+		GitCmd{
+			cmd:  "branch",
+			args: []string{"--show-current"},
+		},
+	}
+	br, err := ac.multipass()
+	if err != nil {
+		fmt.Println(err)
+		panic(err)
+	}
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "branch",
+			args: []string{"--contains", string(br[0]), "|", "grep", "-w", br[0]},
+		},
+	}
+	cmds.multipass()
+
+	return false
+}
+
+func openprompt() bool {
+	fmt.Println("This is a fresh remote. Would you like to set upstream tracking?")
+	reader := bufio.NewReader(os.Stdin)
+	rune, _, err := reader.ReadRune()
+	if err != nil {
+		panic(err)
+	}
+	if rune == 'y' || rune == 'Y' {
+		return true
+	}
+	if rune == 'n' || rune == 'Y' {
+		return false
+	}
+	return false
+}
+
 // AddCommitPush - Add, Commit, Push local changes to current branch
 func AddCommitPush(c *cli.Context) error {
+	pushArgs := []string{}
+	if !checkIfRemoteExists() {
+		if openprompt() {
+			pushArgs = append(pushArgs, []string{"-u", "origin", "HEAD"}...)
+		}
+	}
 	commitMsg := os.Args[2]
 	cmds := GitCmdList{
 		GitCmd{
@@ -103,7 +148,7 @@ func AddCommitPush(c *cli.Context) error {
 		},
 		GitCmd{
 			cmd:  "push",
-			args: nil,
+			args: pushArgs,
 		},
 	}
 
@@ -170,7 +215,7 @@ func StashPullPop(c *cli.Context) error {
 	return nil
 }
 
-// SoftReset - Undo last commit while saving changes
+// SoftReset - Undo staged changes while saving changes
 func SoftReset(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
@@ -192,7 +237,7 @@ func SoftReset(c *cli.Context) error {
 	return nil
 }
 
-// HardReset - Undo last commit while destroying changes
+// HardReset - Undo staged changes while destroying changes
 func HardReset(c *cli.Context) error {
 	cmds := GitCmdList{
 		GitCmd{
@@ -214,16 +259,18 @@ func HardReset(c *cli.Context) error {
 	return nil
 }
 
-// UndoMerge - Undo most recent merge unless commit hash passed
+// UndoMerge - Undo most recent merge or merge with give commit-id
 func UndoMerge(c *cli.Context) error {
+	var mergeId string
+	if len(os.Args[1:]) > 0 {
+		mergeId = os.Args[2]
+	} else {
+		mergeId = "HEAD"
+	}
 	cmds := GitCmdList{
-		// GitCmd{
-		// 	cmd:  "checkout",
-		// 	args: []string{"main"},
-		// },
 		GitCmd{
-			cmd:  "log",
-			args: []string{"--oneline"},
+			cmd:  "revert",
+			args: []string{mergeId},
 		},
 	}
 
@@ -269,7 +316,7 @@ func RenameBranch(c *cli.Context) error {
 	return nil
 }
 
-// SetGitAuthors - Sets authors passed for git commits
+// SetGitAuthors - Sets authors for git commits
 func SetGitAuthors(c *cli.Context) error {
 	argslength := len(os.Args[1:])
 	if argslength < 2 {
@@ -300,6 +347,7 @@ func SetGitAuthors(c *cli.Context) error {
 	return nil
 }
 
+// CreateCheckoutBranch - Create then checkout branch with given name
 func CreateCheckoutBranch(c *cli.Context) error {
 	branchName := os.Args[2]
 	cmds := GitCmdList{
@@ -308,6 +356,30 @@ func CreateCheckoutBranch(c *cli.Context) error {
 			args: []string{"-b", branchName},
 		},
 	}
+	info, err := cmds.multipass()
+	if err != nil {
+		return err
+	}
+	fmt.Println(info)
+
+	return nil
+}
+
+// SearchLogPerMessage - Search the git log for a specific commit
+// with the given commit message given
+func SearchLogPerMessage(c *cli.Context) error {
+	if len(os.Args) < 2 {
+		fmt.Println("oof - you need to pass something to search on")
+		return fmt.Errorf("error")
+	}
+	commitMsg := os.Args[2]
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "log",
+			args: []string{"--pretty=oneline", "|", "grep", commitMsg},
+		},
+	}
+
 	info, err := cmds.multipass()
 	if err != nil {
 		return err
@@ -341,7 +413,5 @@ func writeOutputToFile(data []string) {
 		bt := []byte(d)
 		bytes = append(bytes, bt...)
 	}
-	home, _ := os.UserHomeDir()
-	logLocation := filepath.Join(home, "git_log.txt")
-	os.WriteFile(logLocation, bytes, 0644)
+	os.WriteFile("log_file.txt", bytes, 0644)
 }
