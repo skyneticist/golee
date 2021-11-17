@@ -9,6 +9,21 @@ import (
 	cli "github.com/urfave/cli/v2"
 )
 
+const colorRed = "\033[0;31m"
+const colorGreen = "\033[0;32m"
+const colorBlue = "\033[0;34m"
+const colorNone = "\033[0m"
+
+// RedString returns a red string.
+func RedString(s string) string {
+	return colorRed + s + colorNone
+}
+
+// GreenString returns a green string.
+func GreenString(s string) string {
+	return colorGreen + s + colorNone
+}
+
 // multipass - Receiver function that takes a GitCmdList ([]string) and iterates
 // over each entry, passing the entry to runGitCmd
 func (gitCmds GitCmdList) multipass() ([]string, error) {
@@ -48,7 +63,7 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 		return "error at runGitCmd()!", err
 	}
 
-	return string(stdout), nil
+	return GreenString(string(stdout)), nil
 }
 
 // getGitBranch - Grabs current checkedout branch
@@ -89,27 +104,43 @@ func Fullpull(c *cli.Context) error {
 	return nil
 }
 
-func checkIfRemoteExists() bool {
-	ac := GitCmdList{
+func getBranch() string {
+	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "branch",
 			args: []string{"--show-current"},
 		},
 	}
-	br, err := ac.multipass()
+	br, err := cmds.multipass()
 	if err != nil {
 		fmt.Println(err)
 		panic(err)
 	}
+	return br[0]
+}
+
+func checkIfRemoteExists() bool {
+	fmt.Println("remoteExists but...")
+	br := getBranch()
 	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "branch",
-			args: []string{"--contains", string(br[0]), "|", "grep", "-w", br[0]},
+			args: []string{"--contains", br, "|", "grep", "-w", "br"},
 		},
 	}
-	cmds.multipass()
+	remote, err := cmds.multipass()
+	if err != nil {
+		panic(err)
+	}
 
-	return false
+	var remoteExists bool
+	if remote[0] != "" {
+		remoteExists = false
+	} else {
+		remoteExists = true
+	}
+
+	return remoteExists
 }
 
 func openprompt() bool {
@@ -131,11 +162,14 @@ func openprompt() bool {
 // AddCommitPush - Add, Commit, Push local changes to current branch
 func AddCommitPush(c *cli.Context) error {
 	pushArgs := []string{}
-	if !checkIfRemoteExists() {
-		if openprompt() {
-			pushArgs = append(pushArgs, []string{"-u", "origin", "HEAD"}...)
-		}
-	}
+	// upstream := checkIfRemoteExists()
+	// fmt.Println(upstream)
+	// if !upstream {
+	// 	okay := openprompt()
+	// 	if okay {
+	// 		pushArgs = append(pushArgs, []string{"-u", "origin", "HEAD"}...)
+	// 	}
+	// }
 	commitMsg := os.Args[2]
 	cmds := GitCmdList{
 		GitCmd{

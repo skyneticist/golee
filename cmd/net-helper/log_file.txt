@@ -1,0 +1,1040 @@
+
+[0;32mcommit cabcac289d90432cf42a95baad7b6b682623c20f
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Tue Nov 16 17:15:10 2021 -0600
+
+    add more info to prompt question
+
+commit 3da186ac42af6010080c66185fa849264fb3f729
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Tue Nov 16 17:13:18 2021 -0600
+
+    add logic to handle automatically prompting when new remote
+
+commit 1b34061f038710537816fe35a7b59f0d76144f9b
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Tue Nov 16 17:11:46 2021 -0600
+
+    add logic to handle automatically prompting when new remote
+
+commit 682d9a2f47d6d447994e4d7575f32bbd59f2105f
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 17:24:08 2021 -0600
+
+    clean up more files and add create and checkout branch command
+
+commit b7ddce2a01a64713ba8e3b2f02cec1c986c873d5
+Merge: 9c5362d 7d059e8
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 16:38:29 2021 -0600
+
+    Merge pull request #19 from skyneticist/cleanupexe
+    
+    Cleanupexe
+
+commit 7d059e8086b90865291b96f2271311fdea6b25e9
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 16:35:12 2021 -0600
+
+    clean out uxtraneous exes and remove unnecessary dist folder in cmd/net-helper
+
+commit a47fe9896e74e9bb589a1c90d83a96b922787e5a
+Merge: 325eb8f 9c5362d
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 16:32:22 2021 -0600
+
+    Merge branch 'main' of https://github.com/skyneticist/golee
+
+commit 9c5362dcda2b55b217ddb026cc8c244b403845b5
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 16:26:32 2021 -0600
+
+    Update README.md
+
+commit e75cb0f29c1f100a5351ee7bf93e7e5965605a89
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 16:17:06 2021 -0600
+
+    Update README.md
+
+commit 468641ddd71e1b00d325c700809e4908749cf9cf
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 12:30:59 2021 -0600
+
+    Update README.md
+
+commit dfe724b80e57e355a7c83a62bfafbfcd8b843ee0
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 12:28:19 2021 -0600
+
+    Update README.md
+
+commit 325eb8fef3e3bbad70845cbaabc313ff90e84256
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 12:13:55 2021 -0600
+
+    2.2.2
+
+commit b02bbd19772cd7d21a3b3b23864bab18176a8653
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 12:13:29 2021 -0600
+
+    Update README.md
+
+commit 842f29a9f2f2fe73b6d35f6ca1f57cd67a920f26
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 12:10:57 2021 -0600
+
+    Update README.md
+
+commit db9993e89711807b4c8dec43fbff979743713297
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 12:08:14 2021 -0600
+
+    Update README.md
+
+commit f2b99a6e8809e2ab8cd5eb3f5e9870115f615ff9
+Merge: cf34cf4 d67dc9c
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 11:56:31 2021 -0600
+
+    Merge pull request #18 from skyneticist/helpImproved
+    
+    Help improved - Windows npm install fixed !!!
+    
+    This commit beefs up the help prompt and, more importantly, allows windows users to install golee using npm i -g @skyneticist/git-golee@latest.
+    
+    There are a lot of broken versions on npm and git releases, something I'll clean up next
+
+commit d67dc9cf5f6fed303e629d48da6a416a38155a0e
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 11:49:59 2021 -0600
+
+    mv dist manually
+
+commit 93a48b16bb62d6466601383f01bbf3d54dbfb21a
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 11:47:30 2021 -0600
+
+    2.1.0
+
+commit 7115cfbdb927eca474aebad5bd84db6c2a54df46
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 11:47:01 2021 -0600
+
+    new goreleaser build v0.3.3
+
+commit 59d4d615bcfb0a932eb6234627c3a19b34b1ca66
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 11:44:34 2021 -0600
+
+    new build
+
+commit daa479cabd33abf6b734a2af6304655c6a50b64c
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 11:43:47 2021 -0600
+
+    update dist
+
+commit fd5a2bd43106e3d49cd8e860294216b09fbc7d3e
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 11:41:34 2021 -0600
+
+    update version in package.json
+
+commit bc9d174d6080efa5695c2210fe0d1ffa6eaceca9
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 11:41:13 2021 -0600
+
+    go build
+
+commit dfead16bb3d229ced2ecd2b9b7a85dca0038a5d7
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 11:40:14 2021 -0600
+
+    more information and better formatting for cli help
+
+commit cf34cf4b4d68b13a966ee65a88d781a028588cc3
+Merge: 39ddc7d af39027
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 10:52:40 2021 -0600
+
+    Merge pull request #17 from skyneticist/npmDist
+    
+    Npm dist
+
+commit af3902765c8f8160fb58ab0e172d0bc75cb1071c
+Merge: 6136837 bd5929e
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 10:49:17 2021 -0600
+
+    merge imprHelp to npmDist
+
+commit 6136837e168ff45b751502d1bdf3a6c3f30e8cae
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 10:48:14 2021 -0600
+
+    add emoji
+
+commit bd5929e2907c491dfb234915b2265eb065048e32
+Merge: 6871b39 1190547
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 10:47:03 2021 -0600
+
+    Merge pull request #16 from skyneticist/imprHelp
+    
+    Impr help
+
+commit 39ddc7d874f4bd89ebb0d59d5779f6354d3a0cc3
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Mon Nov 8 10:45:34 2021 -0600
+
+    Update README.md
+
+commit 119054754ef84e23ac0f5c43ab125fd294d08985
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 10:27:50 2021 -0600
+
+    push builds
+
+commit 967c7589750e9f01fe22c26d374f9103439597c9
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 10:27:04 2021 -0600
+
+    push goreleaser release post
+
+commit 954d7c0670ce2f1747719f9e2b3832080a76f2c2
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 10:22:57 2021 -0600
+
+    push new build
+
+commit 6dc80f741e9211b4771bffdf7b1fb0d610012a96
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 10:22:23 2021 -0600
+
+    add more to help text and fix dist folder location for npm publish
+
+commit 6871b39b297b72ec6cfbdc0f5243de3dfb8a4adc
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 09:21:12 2021 -0600
+
+    1.4.6
+
+commit 011bdc38d66aafeb93308caff48c60c4ace537e1
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Mon Nov 8 09:20:04 2021 -0600
+
+    change cp path in postinstall
+
+commit 1fe44ed1351ec7def02011b5bcbcc2acf9754111
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sun Nov 7 20:15:59 2021 -0600
+
+    Update README.md
+
+commit ade1d05c6b8965707bd5e218ee42e442f670a1ed
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sun Nov 7 18:45:09 2021 -0600
+
+    Update README.md
+
+commit e7fc403ffbdd13c3eb0f042557527f600e1cb71f
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:48:37 2021 -0600
+
+    1.4.5
+
+commit 4b4bfaf29470d7a351d6433ae4b0826ffffa147a
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:48:11 2021 -0600
+
+    missed the first call on arch
+
+commit 854d8f5ae13c72056c908200e90389f69240791d
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:43:34 2021 -0600
+
+    1.4.4
+
+commit b62493dd7fb48dddeafb0ea5278c22af1503ceba
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:42:43 2021 -0600
+
+    try switching arch and platform in binary cp path
+
+commit 0660b9d7b3cfa66bf63bb9ff58c51b4a77af9075
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:35:37 2021 -0600
+
+    1.4.3
+
+commit 309f5287cc0ff2b490f183f27cbe6eea83486abc
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:35:06 2021 -0600
+
+    fix file path and release test
+
+commit 508e2c1af76c9634f88354fe8c5f52ea55d91cb5
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:30:15 2021 -0600
+
+    fix typo in path
+
+commit 117f5127a9a0233fafb5211cda9cc14c506568c9
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:26:47 2021 -0600
+
+    1.4.2
+
+commit 8b553557b6c015b91c8f4c3a69d3d22b593987be
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:26:08 2021 -0600
+
+    try out more things
+
+commit 3e21d724f0127b596d09027d3fe05dbfe81d6ecf
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:25:13 2021 -0600
+
+    try out new build flow to see if npm i usage is working
+
+commit 6175df0838bf532fdffa6259b8fd7601d8cf5b0a
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:23:18 2021 -0600
+
+    do not forget to build in between all steps
+
+commit 63284d6ea657ff8a7b6e06038be577c91813fdbb
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:22:32 2021 -0600
+
+    last time
+
+commit 9774ffdc6b1b30e762961c684ae76fdcd68adfe7
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:21:25 2021 -0600
+
+    goreleaser giving trouble
+
+commit f7cf4a7a119a3249b43b14d2c7dbeede488eae19
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:19:41 2021 -0600
+
+    goreleaser giving trouble
+
+commit 239d169a0e954b4f0750f804f7b5912cb6f761ef
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:18:01 2021 -0600
+
+    1.4.1
+
+commit 22c4931f650e01491014a24c1c1ab633f8792f72
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:08:10 2021 -0600
+
+    1.4.0
+
+commit d105cd4d98ef8eef5462e6782f0e0aabf96da365
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:07:59 2021 -0600
+
+    fix src path in postinstall script
+
+commit 1d26bfae3c43cca47a08dfd766dcbbf4316b7d61
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:03:23 2021 -0600
+
+    1.3.0
+
+commit 71ceb3eb0a974d7e321126c6c38adc3f1f317274
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 11:03:13 2021 -0600
+
+    revert and try process.arch_process.platform
+
+commit 6fb2335b4db2c7d554e059b62ed6df8cb0d88a7c
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:59:16 2021 -0600
+
+    1.2.9
+
+commit 7694ddf453646b41824171fc66005f82785c555f
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:59:08 2021 -0600
+
+    change version in path for cp cmd to hardvalue
+
+commit 5374b8b0794a8fbe7e4c33df7dfe349f0d83a42d
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:56:23 2021 -0600
+
+    1.2.8
+
+commit ce44d7dc0f83caa5562c58b2d80572b4691ca1f7
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:56:16 2021 -0600
+
+    change src for cp cmd for npm release to include version
+
+commit 70c052b879701a762b7da08a0568d789ed213117
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:53:01 2021 -0600
+
+    1.2.7
+
+commit 8acc4cfe8b758400ac28e5484d1d3833b97288fa
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:52:46 2021 -0600
+
+    try binary change again
+
+commit 68f1e508e347753f698a7c61a3e9cf49c784390e
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:37:54 2021 -0600
+
+    1.2.6
+
+commit 2d35b157ba6e61eebae0608daeb810f631c1b698
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:37:44 2021 -0600
+
+    try manual change to postinstall js script for src in install function
+
+commit b2c7bfa8bbd26084b16083547d5d19fe98a3146a
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:33:57 2021 -0600
+
+    1.2.5
+
+commit 26bd609fd9e8e2a8839b679f07967020f8b3efb9
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:33:33 2021 -0600
+
+    manually change binaries pointed at to net-helper
+
+commit 7c939ef212f9657e20ba4e9dcd2d321e14ca3e2e
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:29:30 2021 -0600
+
+    npm publish v1.2.4
+
+commit da5881dc5b8dc7c935181abefa6a748f491423e0
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:29:10 2021 -0600
+
+    1.2.4
+
+commit c3bc90aa1e51567ae5fd124ef04b17ca122336b9
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:26:50 2021 -0600
+
+    trying golee binary name for current config
+
+commit f4b9b6e4b4588194526191b44a4a368bbdb4f6c3
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:19:51 2021 -0600
+
+    remove commands.exe ?
+
+commit c952d87ffb1139f145ddf4fe03f7bb2406ba6ef6
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:19:00 2021 -0600
+
+    current release test_again and again
+
+commit a47d5532dfec07ec142169197e88c07e173b592a
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:17:53 2021 -0600
+
+    current release test_again
+
+commit 140136a369a0ed2908c140f0eb9d2e8ca27d5282
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:17:04 2021 -0600
+
+    current release test
+
+commit 08b6eb2c9c3330430ce83c57abd454eaa676431e
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 10:16:00 2021 -0600
+
+    current release test
+
+commit c440861ac9d637d76c70df7a0ae07a9aca6b717a
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sun Nov 7 02:02:09 2021 -0600
+
+    Update README.md
+
+commit efe0e5c6171a70b92c8847e4d8c56a43fa7d4060
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:56:34 2021 -0600
+
+    1.2.1
+
+commit 795adc3c2216cb297a9507ed202de623a45eabb2
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:56:17 2021 -0600
+
+    current release test
+
+commit 97afa6a44dfea96a26d8a7018265a32ddacdf13b
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:54:05 2021 -0600
+
+    current release (0.0.3) successful
+
+commit 07b3f12e4164e4a406b35aa1d91c10d2c71be8cf
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:46:08 2021 -0600
+
+    1.2.0
+
+commit a1bd8ede7fe37f64f78b70b4f7df79a3ad9b3c3c
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:45:43 2021 -0600
+
+    current release (0.0.2) successful
+
+commit 985e91576772b91f29bb811bbea095c861e5b061
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:40:10 2021 -0600
+
+    try go build before releaser
+
+commit c8d3aa6e38a5cb0385e4e1e3d771d6140c5ce135
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:32:26 2021 -0600
+
+    try change on id for builds in yml
+
+commit 31bcabea7aa8c3fb9049694768eb7c0c95911b93
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:31:03 2021 -0600
+
+    try change on id for builds in yml
+
+commit 9fcfa26c29953792e995f7e655877b0fd982e815
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:29:03 2021 -0600
+
+    change binary on goreleaser yml
+
+commit 233c37d0e7bef56b521b205837838ec07efe99d7
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:27:00 2021 -0600
+
+    try path for gobinary
+
+commit 18959ff99fdd1224aaf38a07fbd30b109ab2b61a
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:25:28 2021 -0600
+
+    try path for gobinary
+
+commit 34fb7723d1d21ef46fe07b29ec2ced77cb074730
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 01:23:00 2021 -0600
+
+    change git repo url in package.json
+
+commit 6eea84637c83824a669cd9468b524ef0d4c3fb1e
+Merge: a339af9 52f4ecc
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Sun Nov 7 00:29:36 2021 -0500
+
+    trying things out
+
+commit 47ffff0bab94e4e0e0c087316e79ffa60a785f3c
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sun Nov 7 00:20:45 2021 -0500
+
+    Update README.md
+
+commit e0001d0fe6a4cc3b697c99a157609c09720b1222
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sun Nov 7 00:19:28 2021 -0500
+
+    Update README.md
+
+commit 0db1b487a502de1f34848d7ca16f15b7e4049f92
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sun Nov 7 00:12:45 2021 -0500
+
+    Update README.md
+
+commit 010b56aa4b26ce3bc7c5a0523dc946a9134427d9
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sun Nov 7 00:10:20 2021 -0500
+
+    Update README.md
+
+commit bd8c892d5cc196ce9f8201d416023a828b48076b
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sat Nov 6 19:47:55 2021 -0500
+
+    Update README.md
+
+commit 4d0c5b2f148d8b72eaddf03d46f1b49abe8cdb0b
+Merge: f68a8fa ebf7e8d
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sat Nov 6 19:40:46 2021 -0500
+
+    Merge pull request #15 from skyneticist/addAuthorFunc
+    
+    Add author func
+
+commit ebf7e8d40b37509c4a45336d6144199d5706c05f
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 19:39:19 2021 -0500
+
+    add global flag to git config call in SetGitAuthors
+
+commit 3244a213124adac6516a7a718e1094b9768f470a
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 19:31:02 2021 -0500
+
+    add git author func and command
+
+commit 52f4ecca7d46c681bb045f79cc0441a985363f0e
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 18:31:43 2021 -0500
+
+    try some things
+
+commit f68a8fa50776ba7b81b09d2f34834b92088842f6
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sat Nov 6 18:18:18 2021 -0500
+
+    Update README.md
+
+commit bd277734f885853b11c2c8f4a58618ae8e767028
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sat Nov 6 17:57:24 2021 -0500
+
+    Update README.md
+
+commit a339af9c6db8f200654fb4b27c1fadedf7dc5c7b
+Merge: 56bc808 0f117b7
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 17:35:03 2021 -0500
+
+    Merge branch 'npmDist' of https://github.com/skyneticist/golee into npmDist
+
+commit 0f117b7942446d7e1777fc53aca507e3a1c9492e
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 17:33:06 2021 -0500
+
+    add exe
+
+commit 56bc808d79cf645bbf76ee32c67ce789318f2068
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 17:28:27 2021 -0500
+
+    1.1.0
+
+commit 553cb14320b6ace5e4de26785631c6928cdceb39
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 16:51:04 2021 -0500
+
+    fix things
+
+commit e2e713076ef8d6f6dd744890af46e1f923c86750
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 16:30:59 2021 -0500
+
+    edit go releaser yml
+
+commit 866ee537872058eb70f0bff4cdba7a5f94579d82
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 16:29:51 2021 -0500
+
+    edit go releaser yml
+
+commit ea8c0eabce7eb77919962ed23cd0fadb5eb70b66
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 16:25:05 2021 -0500
+
+    add various npm release things
+
+commit f790cd5751e2e4cc5286b04aabca6f9e42938c19
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 16:12:34 2021 -0500
+
+    add goreleaser pkg to prepare for distributing via npm i -g
+
+commit 66754a3ea3d86cadf804b342d635f639b8c481aa
+Merge: 6a01fe6 bbc8669
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Sat Nov 6 10:30:19 2021 -0500
+
+    Merge pull request #14 from skyneticist/addWriteLog
+    
+    add expanded functionality for CreateLogFile
+
+commit bbc8669301cc6277e5e04dbae62e46d8495e96c5
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Sat Nov 6 10:29:04 2021 -0500
+
+    add expanded functionality for CreateLogFile
+
+commit 6a01fe6964206c567e7f9accf9e3a66962f344a6
+Merge: e6644f4 84276c8
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Fri Nov 5 17:02:12 2021 -0500
+
+    Merge pull request #13 from skyneticist/descriptiveErr
+    
+    fix error string returned from multipass to be more descriptive
+
+commit 84276c883997f0d1b5429c89e44d1a7dddfd584a
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 17:00:32 2021 -0500
+
+    fix error string returned from multipass to be more descriptive
+
+commit e6644f4722cfe5f4c24d51b5380c43464c2b4033
+Merge: fea58e7 22ac290
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Fri Nov 5 16:56:50 2021 -0500
+
+    Merge pull request #12 from skyneticist/im_multipass
+    
+    Im multipass
+
+commit 22ac2909a042209b8788d75dfcb9a990a23091b2
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 16:55:01 2021 -0500
+
+    handle pretty print of output in gitfuncs multipass; clean up some names, etc
+
+commit 34a651b55a47a94ee29105642e21b799387b6bba
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 15:58:56 2021 -0500
+
+    check if result from multipass must be slice
+
+commit fea58e79f074391e55bb1e6805ea9e9990e9dd93
+Merge: 6b0d946 bc32c85
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Fri Nov 5 15:53:04 2021 -0500
+
+    Merge pull request #11 from skyneticist/addStashAcpr
+    
+    remove unused gitGetBranch call in ACPR
+
+commit bc32c85ae17a04219712e9938e88860462ace9f3
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 15:52:09 2021 -0500
+
+    remove unused gitGetBranch call in ACPR
+
+commit 6b0d946d284f767c145947b120b92171f5174752
+Merge: 02b8a78 e499bad
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Fri Nov 5 15:50:08 2021 -0500
+
+    Merge pull request #10 from skyneticist/addStashAcpr
+    
+    Add stash acpr
+
+commit e499bad3a83d83b851e63dda61300fd85ccd5a17
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 15:48:19 2021 -0500
+
+    add git stash cmd to acpr git func
+
+commit eca35f1d7d0572ad3e561dd0619188ac18b72239
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 15:40:13 2021 -0500
+
+    attempting acpr after multipass change
+
+commit 02b8a78da100916559c7ce80b74a60bc6bcf0ff1
+Merge: 4502ab1 2869da3
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Fri Nov 5 10:54:48 2021 -0500
+
+    Merge pull request #9 from skyneticist/usageCleanup
+    
+    fix usage setup in commands.go
+
+commit 2869da34c0be468274bed6bf50ac8bd6e25cf2f4
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 10:47:26 2021 -0500
+
+    fix usage setup in commands.go
+
+commit 4502ab1776910b9fc1d82ccb8c67ebd419f21447
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 10:37:49 2021 -0500
+
+    add version to cli config
+
+commit e0dba3f14569799d981924795e502c947578a007
+Merge: 5f54b10 0d13f0e
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Fri Nov 5 10:36:37 2021 -0500
+
+    Merge pull request #8 from skyneticist/fixGetGitBranch
+    
+    fix getGitBranch method to only return the current checkedout branch
+
+commit 5f54b108122d1eebe0bcbf3420547227165b1c2a
+Merge: 17f21af 92b5b64
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 10:35:59 2021 -0500
+
+    Merge branch 'main' of https://github.com/skyneticist/golee
+
+commit 17f21afa9e9bdfe6565a30b6c7d6616cabe06c47
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 10:35:39 2021 -0500
+
+    add help name on UndoMergeCmd
+
+commit 0d13f0e57d5eeebe67eaf0eb799c0fa76da775bc
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 10:12:57 2021 -0500
+
+    fix getGitBranch method to only return the current checkedout branch
+
+commit 92b5b640fe9258fe73cde209f29c526585095e8f
+Merge: 0793b62 d071fc3
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Fri Nov 5 10:08:12 2021 -0500
+
+    Merge pull request #7 from skyneticist/addRenameBranch
+    
+    add RenameBranch git function
+
+commit d071fc35bd8016f1404fc36824d2aebb51fa6ef3
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Fri Nov 5 10:06:20 2021 -0500
+
+    add RenameBranch git function
+
+commit 0793b62abeaccd78e9e674ad8cb3b743463d0bc8
+Merge: 05f7fca 507ff89
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Thu Nov 4 20:41:12 2021 -0500
+
+    Merge pull request #6 from skyneticist/cleanupToDoComments
+    
+    remove TODO comments from golee.go
+
+commit 507ff891fda28f20873a8773027ffcffba95bc95
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 20:40:03 2021 -0500
+
+    remove TODO comments from golee.go
+
+commit 05f7fca05c3b9b782c0ca5667183ad73895bb2ca
+Merge: 2caf5b8 20a20bb
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Thu Nov 4 20:20:17 2021 -0500
+
+    Merge pull request #5 from skyneticist/test_branch
+    
+    Is this not working
+
+commit 20a20bbd583bb51bf942a03ada46baf105ef418f
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 20:17:47 2021 -0500
+
+    Is this not working
+
+commit 2caf5b8d46f7b6bac276c5ef69d0cec99af3a8a8
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 20:14:31 2021 -0500
+
+    acp
+
+commit 1f609ffa0808e0b31f9d4cc0a4097156d3ff788f
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 20:12:09 2021 -0500
+
+    acp
+
+commit e9643b522b6ed8d12f1478c57b682eeac3ac1d1c
+Merge: 140b0b3 60659b5
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 20:10:29 2021 -0500
+
+    Merge branch 'main' of https://github.com/skyneticist/golee
+
+commit 140b0b351d16ef470a756d6014b50be3a731f6c1
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 20:09:13 2021 -0500
+
+    acp
+
+commit 7d616e36df1feb5c0e47e6003e4d999932625d1c
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 20:08:27 2021 -0500
+
+    acp
+
+commit 60659b568b95f39f804a7ea39d0d996bc49dd3ae
+Merge: b42bdb4 fc8f5e4
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Thu Nov 4 20:00:19 2021 -0500
+
+    Merge pull request #4 from skyneticist/addRemoteACP
+    
+    Add remote acp
+
+commit fc8f5e4f678f7a6d496ffac96d814680a0da5cd7
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 19:59:04 2021 -0500
+
+    add AddCpRCmd including it with others in golee.go; add gitFunc for AddCpR
+
+commit 569542ac843880959c32132caabbf5b7e1cc79c7
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 19:53:02 2021 -0500
+
+    add AddCpRCmd including it with others in golee.go; add gitFunc for AddCpR
+
+commit b42bdb4799c532c7cad43eefc5ca73d4a5199d2f
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Thu Nov 4 19:32:46 2021 -0500
+
+    Update README - add Go Report Card
+
+commit 9222a7edd4265616ebfbc2185fab05bd3f63fc8d
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 19:29:23 2021 -0500
+
+    change spelling of alias for help
+
+commit 38a2082360c3567984061e6dd388dec4bf3caa6c
+Merge: 0cd05b5 ee456f3
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Thu Nov 4 19:26:45 2021 -0500
+
+    Merge pull request #3 from skyneticist/add-license-1
+    
+    Create LICENSE
+
+commit ee456f379d955b4d9c34c1bbd666583427c715a2
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Thu Nov 4 19:26:36 2021 -0500
+
+    Create LICENSE
+
+commit 0cd05b5ec255b992a44b37434226b30d0c116a21
+Merge: 852b16c 462df52
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Thu Nov 4 19:18:14 2021 -0500
+
+    Merge pull request #2 from skyneticist/makeBetter
+    
+    complete comments and satisfy all golint errors
+
+commit 462df52d320352414f8fecd27926896eafb639e3
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 19:14:56 2021 -0500
+
+    complete comments and satisfy all golint errors
+
+commit 852b16c708a24c3e77d7fcc5cdb898cc91606586
+Merge: e77c298 1a67c1f
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Thu Nov 4 18:47:22 2021 -0500
+
+    Merge pull request #1 from skyneticist/makeBetter
+    
+    break out commands, git functions, types, init function; add some com…
+
+commit 1a67c1ffb57f9188e3e98ec89cabe05c2d33add8
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 17:05:00 2021 -0500
+
+    break out commands, git functions, types, init function; add some comments
+
+commit e77c298f9251dc71dba42914672880d6af1ca46e
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 13:18:57 2021 -0500
+
+    break out all git functions from main golee.go file
+
+commit 391e3c141ac2af742b7efac51571432967935d00
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 12:32:58 2021 -0500
+
+    simple cleanup
+
+commit 2e4237dcaa0ab0b6a8658146b14d5727b002cbb1
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 12:28:54 2021 -0500
+
+    add undoMerge to commands
+
+commit 2852baace6c2f0b5bd696b9bf84bcc29f188b9c4
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Thu Nov 4 12:09:05 2021 -0500
+
+    Delete .idea directory
+
+commit 3e60a886c9bf8e4553203e2c21a08d8700516a73
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 12:08:14 2021 -0500
+
+    fix gitignore
+
+commit cd27e74a78dd3fbe978acd45d68f0daeb011926e
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 12:06:25 2021 -0500
+
+    oops :)
+
+commit 77f75dd8fe76dde2cc0f5537d6493d6d1897923f
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 12:04:46 2021 -0500
+
+    add gitignore and additional git commands
+
+commit 6aa4e81f8cb693859767567061579446394b75ba
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 10:56:06 2021 -0500
+
+    msg goes here, dynamically
+
+commit 92aef567f9d08f5c4bf666c37c5a7dec197f8195
+Author: skyneticist <81132371+skyneticist@users.noreply.github.com>
+Date:   Thu Nov 4 10:48:58 2021 -0500
+
+    Create README.md
+
+commit 1d333d980167a558c5dc1a6c34405eb6f556a263
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 10:47:18 2021 -0500
+
+    msg goes here, dynamically
+
+commit 760172979e5f6001f433766705057ab9eb522496
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 10:35:19 2021 -0500
+
+    msg goes here, dynamically
+
+commit 821c45ce1f9c76362d34791382cf762998cb799d
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 10:33:29 2021 -0500
+
+    add functionality for add commit push on git via gg acp command
+
+commit 3cfad80beaad557f2da8274c3b0e26de2cead1bf
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 10:15:28 2021 -0500
+
+    fix master to main
+
+commit 8c0003e619c11ce7a714774becd6b91505b287ea
+Author: skyneticist <hunterhartline87@gmail.com>
+Date:   Thu Nov 4 10:13:28 2021 -0500
+
+    init commit
+[0m
