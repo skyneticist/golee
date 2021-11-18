@@ -67,7 +67,6 @@ func CheckIfRemoteExists() bool {
 	gitbranch.Start()
 
 	remote, _ := findstr.Output()
-	fmt.Println(remote)
 
 	var remoteExists bool
 	if len(remote) == 0 {
@@ -80,7 +79,7 @@ func CheckIfRemoteExists() bool {
 }
 
 func OpenPrompt() bool {
-	fmt.Print("This is a fresh remote. Would you like to set upstream tracking? (y/n)")
+	fmt.Print(GreenString("This is a fresh remote. Would you like to set upstream tracking? (y/n)"))
 	reader := bufio.NewReader(os.Stdin)
 	rune, _, err := reader.ReadRune()
 	if err != nil {

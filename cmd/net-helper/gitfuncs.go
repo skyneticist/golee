@@ -80,7 +80,6 @@ func Fullpull(c *cli.Context) error {
 func AddCommitPush(c *cli.Context) error {
 	pushArgs := []string{}
 	upstream := CheckIfRemoteExists()
-	fmt.Println(upstream)
 	if !upstream {
 		okay := OpenPrompt()
 		if okay {
