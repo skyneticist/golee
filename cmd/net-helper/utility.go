@@ -70,7 +70,7 @@ func CheckIfRemoteExists() bool {
 	fmt.Println(remote)
 
 	var remoteExists bool
-	if string(remote) != "" {
+	if string(remote) == "[]" {
 		remoteExists = false
 	} else {
 		remoteExists = true
