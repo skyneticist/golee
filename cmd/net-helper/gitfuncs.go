@@ -1,28 +1,12 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
 
 	cli "github.com/urfave/cli/v2"
 )
-
-const colorRed = "\033[0;31m"
-const colorGreen = "\033[0;32m"
-const colorBlue = "\033[0;34m"
-const colorNone = "\033[0m"
-
-// RedString returns a red string.
-func RedString(s string) string {
-	return colorRed + s + colorNone
-}
-
-// GreenString returns a green string.
-func GreenString(s string) string {
-	return colorGreen + s + colorNone
-}
 
 // multipass - Receiver function that takes a GitCmdList ([]string) and iterates
 // over each entry, passing the entry to runGitCmd
@@ -63,18 +47,6 @@ func runGitCmd(subCmd GitCmd) (string, error) {
 		return "error at runGitCmd()!", err
 	}
 
-	return GreenString(string(stdout)), nil
-}
-
-// getGitBranch - Grabs current checkedout branch
-func getGitBranch() (string, error) {
-	subCmd := []string{"rev-parse", "--abbrev-ref", "HEAD"}
-	cmd := exec.Command("git", subCmd...)
-	stdout, err := cmd.Output()
-	if err != nil {
-		return err.Error(), err
-	}
-
 	return string(stdout), nil
 }
 
@@ -104,72 +76,17 @@ func Fullpull(c *cli.Context) error {
 	return nil
 }
 
-func getBranch() string {
-	cmds := GitCmdList{
-		GitCmd{
-			cmd:  "branch",
-			args: []string{"--show-current"},
-		},
-	}
-	br, err := cmds.multipass()
-	if err != nil {
-		fmt.Println(err)
-		panic(err)
-	}
-	return br[0]
-}
-
-func checkIfRemoteExists() bool {
-	fmt.Println("remoteExists but...")
-	br := getBranch()
-	cmds := GitCmdList{
-		GitCmd{
-			cmd:  "branch",
-			args: []string{"--contains", br, "|", "grep", "-w", "br"},
-		},
-	}
-	remote, err := cmds.multipass()
-	if err != nil {
-		panic(err)
-	}
-
-	var remoteExists bool
-	if remote[0] != "" {
-		remoteExists = false
-	} else {
-		remoteExists = true
-	}
-
-	return remoteExists
-}
-
-func openprompt() bool {
-	fmt.Print("This is a fresh remote. Would you like to set upstream tracking? (y/n)")
-	reader := bufio.NewReader(os.Stdin)
-	rune, _, err := reader.ReadRune()
-	if err != nil {
-		panic(err)
-	}
-	if rune == 'y' || rune == 'Y' {
-		return true
-	}
-	if rune == 'n' || rune == 'Y' {
-		return false
-	}
-	return false
-}
-
 // AddCommitPush - Add, Commit, Push local changes to current branch
 func AddCommitPush(c *cli.Context) error {
 	pushArgs := []string{}
-	// upstream := checkIfRemoteExists()
-	// fmt.Println(upstream)
-	// if !upstream {
-	// 	okay := openprompt()
-	// 	if okay {
-	// 		pushArgs = append(pushArgs, []string{"-u", "origin", "HEAD"}...)
-	// 	}
-	// }
+	upstream := CheckIfRemoteExists()
+	fmt.Println(upstream)
+	if !upstream {
+		okay := OpenPrompt()
+		if okay {
+			pushArgs = append(pushArgs, []string{"-u", "origin", "HEAD"}...)
+		}
+	}
 	commitMsg := os.Args[2]
 	cmds := GitCmdList{
 		GitCmd{
@@ -319,13 +236,10 @@ func UndoMerge(c *cli.Context) error {
 
 // RenameBranch - Renames current branch to passed string
 func RenameBranch(c *cli.Context) error {
-	oldName, err := getGitBranch()
+	oldName := GetBranch()
 	oldName = ":" + oldName
-	if err != nil {
-		return err
-	}
-
 	newName := os.Args[2]
+
 	cmds := GitCmdList{
 		GitCmd{
 			cmd:  "branch",

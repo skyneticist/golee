@@ -282,7 +282,7 @@ var SetGitAuthorsCmd = cli.Command{
 // CreateCheckoutBranch - Cli command that invokes CreateCheckoutBranch git function
 var CreateCheckoutBranchCmd = cli.Command{
 	Name:        "createCheckoutBranch",
-	Aliases:     []string{"nb", "ccb", "bb"},
+	Aliases:     []string{"cob", "cb", "bb"},
 	Usage:       "gg bb",
 	UsageText:   "",
 	Description: "",

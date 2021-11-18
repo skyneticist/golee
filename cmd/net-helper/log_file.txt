@@ -1,5 +1,17 @@
 
-[0;32mcommit cabcac289d90432cf42a95baad7b6b682623c20f
+commit a341ed3f2e82e1babd837061d9f49bd1f23d5cc2
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Tue Nov 16 23:38:39 2021 -0600
+
+    colors
+
+commit 302427d3199c5b600dde1c73c46513234042426f
+Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
+Date:   Tue Nov 16 23:32:54 2021 -0600
+
+    colors init
+
+commit cabcac289d90432cf42a95baad7b6b682623c20f
 Author: skyneticist, teslatickles <hunterhartline87@gmail.com>
 Date:   Tue Nov 16 17:15:10 2021 -0600
 
@@ -1037,4 +1049,3 @@ Author: skyneticist <hunterhartline87@gmail.com>
 Date:   Thu Nov 4 10:13:28 2021 -0500
 
     init commit
-[0m
