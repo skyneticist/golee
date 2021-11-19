@@ -2,7 +2,9 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
+	"io"
 	"os"
 	"os/exec"
 )
@@ -56,21 +58,31 @@ func GetBranch() string {
 
 func CheckIfRemoteExists() bool {
 	br := GetBranch()
+	fmt.Println(br)
 
 	gitbranch := exec.Command("git", "branch")
 	findstr := exec.Command("findstr", br)
 
-	pipe, _ := gitbranch.StdoutPipe()
-	defer pipe.Close()
-	findstr.Stdin = pipe
+	reader, writer := io.Pipe()
+
+	gitbranch.Stdout = writer
+	findstr.Stdin = reader
+
+	var buff bytes.Buffer
+	findstr.Stdout = &buff
 
 	gitbranch.Start()
+	gitbranch.Wait()
+	findstr.Start()
+	findstr.Wait()
+	writer.Close()
 
-	remote, _ := findstr.Output()
-	fmt.Println(string(remote))
+	total := buff.String()
+
+	fmt.Printf("Total processes running : %s", total)
 
 	var remoteExists bool
-	if len(remote) == 0 {
+	if len(total) == 0 {
 		remoteExists = false
 	} else {
 		remoteExists = true
