@@ -67,6 +67,7 @@ func CheckIfRemoteExists() bool {
 	gitbranch.Start()
 
 	remote, _ := findstr.Output()
+	fmt.Println(string(remote))
 
 	var remoteExists bool
 	if len(remote) == 0 {
