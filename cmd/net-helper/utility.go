@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
-	"io"
 	"os"
 	"os/exec"
 )
@@ -60,29 +59,41 @@ func CheckIfRemoteExists() bool {
 	br := GetBranch()
 	fmt.Println(br)
 
-	gitbranch := exec.Command("git", "branch")
-	findstr := exec.Command("findstr", br)
+	branch := exec.Command("git", "branch")
+	findBranch := exec.Command("findstr", br)
 
-	reader, writer := io.Pipe()
-
-	gitbranch.Stdout = writer
-	findstr.Stdin = reader
+	findBranch.Stdin, _ = branch.StdoutPipe()
+	findBranch.Stdout = os.Stdout
 
 	var buff bytes.Buffer
-	findstr.Stdout = &buff
+	_ = findBranch.Start()
+	_ = branch.Run()
+	_ = findBranch.Wait()
+	findBranch.Stdout = &buff
+	fmt.Println(buff.String())
+	// gitbranch := exec.Command("git", "branch")
+	// findstr := exec.Command("findstr", br)
 
-	gitbranch.Start()
-	gitbranch.Wait()
-	findstr.Start()
-	findstr.Wait()
-	writer.Close()
+	// reader, writer := io.Pipe()
 
-	total := buff.String()
+	// gitbranch.Stdout = writer
+	// findstr.Stdin = reader
 
-	fmt.Printf("Total processes running : %s", total)
+	// var buff bytes.Buffer
+	// findstr.Stdout = &buff
+
+	// gitbranch.Start()
+	// gitbranch.Wait()
+	// findstr.Start()
+	// findstr.Wait()
+	// writer.Close()
+
+	// total := buff.String()
+
+	// fmt.Printf("Total processes running : %s", total)
 
 	var remoteExists bool
-	if len(total) == 0 {
+	if len(buff.String()) == 0 {
 		remoteExists = false
 	} else {
 		remoteExists = true
@@ -91,6 +102,7 @@ func CheckIfRemoteExists() bool {
 	return remoteExists
 }
 
+// OpenPrompt opens cli prompt asking if the new branch should be pushed with upstream tracking set
 func OpenPrompt() bool {
 	fmt.Print(GreenString("This is a fresh remote. Would you like to set upstream tracking? (y/n)"))
 	reader := bufio.NewReader(os.Stdin)
