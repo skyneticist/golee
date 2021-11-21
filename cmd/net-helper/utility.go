@@ -53,7 +53,10 @@ func CheckIfRemoteExists() bool {
 		fmt.Println(err.Error())
 		panic(err)
 	}
-	fmt.Println(strings.Trim(string(stdout), "\r\n"))
+	output := strings.Trim(string(stdout), "\r\n")
+	output = strings.Trim(output, "*")
+
+	fmt.Println(output)
 	var remoteExists bool
 	if len(stdout) == 0 {
 		remoteExists = false
