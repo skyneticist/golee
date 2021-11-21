@@ -289,8 +289,8 @@ func SetGitAuthors(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
-
-	fmt.Println(info)
+	color := RedString(fmt.Sprintf("%s", info))
+	fmt.Println(color)
 	return nil
 }
 
@@ -307,7 +307,8 @@ func CreateCheckoutBranch(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println(info)
+	colorInfo := GreenString(fmt.Sprintf("%s", info))
+	fmt.Println(colorInfo)
 
 	return nil
 }

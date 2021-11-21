@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"bytes"
 	"fmt"
 	"os"
 	"os/exec"
@@ -28,18 +27,6 @@ func BlueString(s string) string {
 	return colorBlue + s + colorNone
 }
 
-// // getGitBranch - Grabs current checkedout branch
-// func getGitBranch() (string, error) {
-// 	subCmd := []string{"rev-parse", "--abbrev-ref", "HEAD"}
-// 	cmd := exec.Command("git", subCmd...)
-// 	stdout, err := cmd.Output()
-// 	if err != nil {
-// 		return err.Error(), err
-// 	}
-
-// 	return string(stdout), nil
-// }
-
 func GetBranch() string {
 	cmds := GitCmdList{
 		GitCmd{
@@ -57,43 +44,15 @@ func GetBranch() string {
 
 func CheckIfRemoteExists() bool {
 	br := GetBranch()
-	fmt.Println(br)
-
-	branch := exec.Command("git", "branch")
-	findBranch := exec.Command("findstr", br)
-
-	findBranch.Stdin, _ = branch.StdoutPipe()
-	findBranch.Stdout = os.Stdout
-
-	var buff bytes.Buffer
-	_ = findBranch.Start()
-	_ = branch.Run()
-	_ = findBranch.Wait()
-	findBranch.Stdout = &buff
-	fmt.Println(buff.String())
-	// gitbranch := exec.Command("git", "branch")
-	// findstr := exec.Command("findstr", br)
-
-	// reader, writer := io.Pipe()
-
-	// gitbranch.Stdout = writer
-	// findstr.Stdin = reader
-
-	// var buff bytes.Buffer
-	// findstr.Stdout = &buff
-
-	// gitbranch.Start()
-	// gitbranch.Wait()
-	// findstr.Start()
-	// findstr.Wait()
-	// writer.Close()
-
-	// total := buff.String()
-
-	// fmt.Printf("Total processes running : %s", total)
-
+	bashStr := fmt.Sprintf("./bashit.sh %s", br)
+	bash := exec.Command("bash", bashStr)
+	stdout, err := bash.Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(stdout))
 	var remoteExists bool
-	if len(buff.String()) == 0 {
+	if len(stdout) == 0 {
 		remoteExists = false
 	} else {
 		remoteExists = true
