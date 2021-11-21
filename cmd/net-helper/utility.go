@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"strings"
 )
 
 const colorRed = "\033[0;31m"
@@ -44,10 +45,12 @@ func GetBranch() string {
 
 func CheckIfRemoteExists() bool {
 	br := GetBranch()
-	bashStr := fmt.Sprintf("./bashit.sh %s", br)
-	bash := exec.Command("bash", bashStr)
+	bashStr := "C:\\Users\\skyneticist\\net-helper\\bashit.sh"
+	fmt.Println(bashStr)
+	bash := exec.Command("sh", bashStr, strings.Trim(br, "\r\n"))
 	stdout, err := bash.Output()
 	if err != nil {
+		fmt.Println(err.Error())
 		panic(err)
 	}
 	fmt.Println(string(stdout))
