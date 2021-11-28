@@ -47,7 +47,7 @@ func CheckIfRemoteExists() bool {
 	br := GetBranch()
 	fmt.Println(br)
 
-	out, err := exec.Command("git", "branch", "-l", string(br)).Output()
+	out, err := exec.Command("git", "branch", "-l", br).Output()
 	if err != nil {
 		panic(err)
 	}
