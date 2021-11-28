@@ -47,13 +47,20 @@ func CheckIfRemoteExists() bool {
 	br := GetBranch()
 	fmt.Println(br)
 
-	out, err := exec.Command("git", "branch", "-l", br).Output()
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "branch",
+			args: []string{"-l", br},
+		},
+	}
+
+	stdout, err := cmds.multipass()
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(out)
+	fmt.Println(stdout)
 
-	if string(out) != "" {
+	if stdout[0] != "" {
 		return false
 	} else {
 		return true
