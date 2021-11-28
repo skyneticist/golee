@@ -60,7 +60,7 @@ func CheckIfRemoteExists() bool {
 	}
 	fmt.Println(stdout)
 
-	if stdout[0] != "" {
+	if stdout[0] == "" {
 		return false
 	} else {
 		return true
