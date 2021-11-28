@@ -3,9 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
 	"os/exec"
-	"strings"
 )
 
 const colorRed = "\033[0;31m"
@@ -45,26 +45,64 @@ func GetBranch() string {
 
 func CheckIfRemoteExists() bool {
 	br := GetBranch()
-	bashStr := "C:\\Users\\skyneticist\\net-helper\\bashit.sh"
-	fmt.Println(bashStr)
-	bash := exec.Command("sh", bashStr, strings.Trim(br, "\r\n"))
-	stdout, err := bash.Output()
+	fmt.Println(br)
+
+	out, err := exec.Command("git", "branch", "-l", string(br)).Output()
 	if err != nil {
-		fmt.Println(err.Error())
 		panic(err)
 	}
-	output := strings.Trim(string(stdout), "\r\n")
-	output = strings.Trim(output, "*")
+	fmt.Println(out)
 
-	fmt.Println(output)
-	var remoteExists bool
-	if len(stdout) == 0 {
-		remoteExists = false
+	if string(out) != "" {
+		return true
 	} else {
-		remoteExists = true
+		return false
+	}
+}
+
+func CheckIfRemoteEx() bool {
+	br := GetBranch()
+	fmt.Println(br)
+
+	out, err := exec.Command("git", "branch").Output()
+	if err != nil {
+		log.Fatal("git branch did not run successfully")
+	}
+	fmt.Printf("Output from branch: %s", out)
+
+	nextOut := exec.Command("findstr", "main")
+	if err != nil {
+		log.Fatal("findstr did not run successfully")
 	}
 
-	return remoteExists
+	pipe, err := nextOut.StdinPipe()
+	if err != nil {
+		log.Fatal(err)
+	}
+	pipe.Write(out)
+
+	nextOut.Start()
+	finalerr := nextOut.Wait()
+	if finalerr != nil {
+		fmt.Println(err)
+	}
+
+	output, err := nextOut.Output()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Final output: %s", output)
+	fmt.Printf("Output from findstr: %s", nextOut)
+
+	// var remoteExists bool
+	// if len(stdout) == 0 {
+	// 	remoteExists = false
+	// } else {
+	// 	remoteExists = true
+	// }
+
+	return true
+	// return remoteExists
 }
 
 // OpenPrompt opens cli prompt asking if the new branch should be pushed with upstream tracking set
