@@ -54,9 +54,9 @@ func CheckIfRemoteExists() bool {
 	fmt.Println(out)
 
 	if string(out) != "" {
-		return true
-	} else {
 		return false
+	} else {
+		return true
 	}
 }
 
