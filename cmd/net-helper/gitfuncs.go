@@ -76,6 +76,7 @@ func CheckRemoteExists(branchName string) (bool, error) {
 		fmt.Println(info)
 		return false, err
 	}
+	fmt.Println(info[0])
 	if info[0] != "" {
 		fmt.Println("we have made it to info[0] -- true")
 		return true, nil
