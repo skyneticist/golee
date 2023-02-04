@@ -129,8 +129,9 @@ func AddCommitPush(c *cli.Context) error {
 	commitMsg := os.Args[2]
 
 	br, err := getGitBranch()
+	fmt.Println(br)
+
 	if err != nil {
-		fmt.Println("getGit")
 		return err
 	}
 
