@@ -366,6 +366,7 @@ func RenameBranch(c *cli.Context) error {
 }
 
 func SetGitAuthors(c *cli.Context) error {
+	fmt.Println("this is a test comment")
 	argslength := len(os.Args[1:])
 	if argslength < 2 {
 		fmt.Println("need to pass at least one author.")
