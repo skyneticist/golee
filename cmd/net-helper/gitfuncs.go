@@ -135,8 +135,9 @@ func AddCommitPush(c *cli.Context) error {
 	}
 
 	exists, err := CheckRemoteExists(br)
+	fmt.Println(exists)
+
 	if err != nil {
-		fmt.Println(exists)
 		return err
 	}
 
