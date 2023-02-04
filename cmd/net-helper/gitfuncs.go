@@ -73,7 +73,7 @@ func CheckRemoteExists(branchName string) (bool, error) {
 	}
 	info, err := cmds.multipass()
 	if err != nil {
-		fmt.Println(info)
+		fmt.Println("check remote -- multipass")
 		return false, err
 	}
 	fmt.Println(info[0])
