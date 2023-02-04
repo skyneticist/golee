@@ -64,6 +64,25 @@ func getGitBranch() (string, error) {
 	return string(stdout), nil
 }
 
+func CheckRemoteExists(branchName string) (bool, error) {
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "ls-remote",
+			args: []string{"origin", branchName},
+		},
+	}
+	info, err := cmds.multipass()
+	if err != nil {
+		fmt.Println(info)
+		return false, err
+	}
+	if info[0] != "" {
+		fmt.Println("we have made it to info[0] -- true")
+		return true, nil
+	}
+	return false, nil
+}
+
 func Help(c *cli.Context) error {
 	cli.ShowAppHelp(c)
 	cli.ShowCommandHelp(c, "also-nope")
@@ -105,26 +124,6 @@ func Fullpull(c *cli.Context) error {
 	return nil
 }
 
-func CheckRemoteExists(branchName string) (bool, error) {
-	cmds := GitCmdList{
-		GitCmd{
-			cmd:  "ls-remote",
-			args: []string{"origin", branchName},
-		},
-	}
-	info, err := cmds.multipass()
-	if err != nil {
-		fmt.Println(info)
-		return false, err
-	}
-	if info[0] != "" {
-		fmt.Println("we have made it to info[0] -- true")
-		return true, nil
-	}
-	return false, nil
-}
-
-// AddCommitPush - Add, Commit, Push local changes to current branch
 func AddCommitPush(c *cli.Context) error {
 	var cmds GitCmdList
 	commitMsg := os.Args[2]
@@ -185,6 +184,33 @@ func AddCommitPush(c *cli.Context) error {
 
 	return nil
 }
+
+// AddCommitPush - Add, Commit, Push local changes to current branch
+// func AddCommitPush(c *cli.Context) error {
+// 	commitMsg := os.Args[2]
+// 	cmds := GitCmdList{
+// 		GitCmd{
+// 			cmd:  "add",
+// 			args: []string{"."},
+// 		},
+// 		GitCmd{
+// 			cmd:  "commit",
+// 			args: []string{"-m", commitMsg},
+// 		},
+// 		GitCmd{
+// 			cmd:  "push",
+// 			args: nil,
+// 		},
+// 	}
+
+// 	info, err := cmds.multipass()
+// 	if err != nil {
+// 		return err
+// 	}
+// 	fmt.Println(info)
+
+// 	return nil
+// }
 
 // AddCommitPushRemote - Add, Commit, Push local changes
 // on fresh branch (sets upstream)
@@ -395,5 +421,6 @@ func writeOutputToFile(data []string) {
 	}
 	home, _ := os.UserHomeDir()
 	logLocation := filepath.Join(home, "git_log.txt")
-	os.WriteFile(logLocation, bytes, 0644)
+	fmt.Println(logLocation)
+	// os.WriteFile(logLocation, bytes, 0644)
 }
