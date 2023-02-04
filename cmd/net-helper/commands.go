@@ -62,34 +62,6 @@ var AddCpCmd cli.Command = cli.Command{
 	CustomHelpTemplate:     "",
 }
 
-// AddCpRCmd - Cli Command that invokes AddCommitPushRemote git function
-var AddCpRCmd cli.Command = cli.Command{
-	Name:        "addCommitPushRemote",
-	Aliases:     []string{"acpr"},
-	Usage:       "gg acpr [commit_msg]",
-	UsageText:   "add -> commit -> push -> set upstream in one command",
-	Description: "automates remote push of changes in fresh branch",
-	ArgsUsage:   "",
-	Category:    "",
-	BashComplete: func(c *cli.Context) {
-		fmt.Fprintf(c.App.Writer, "--better\n")
-	},
-	OnUsageError: func(c *cli.Context, err error, isSubcommand bool) error {
-		fmt.Fprintf(c.App.Writer, "for shame\n")
-		return err
-	},
-	Action:                 AddCommitPushRemote,
-	Subcommands:            []*cli.Command{},
-	Flags:                  []cli.Flag{},
-	SkipFlagParsing:        false,
-	HideHelp:               false,
-	HideHelpCommand:        false,
-	Hidden:                 false,
-	UseShortOptionHandling: false,
-	HelpName:               "",
-	CustomHelpTemplate:     "",
-}
-
 // StashPpCmd - Cli Command that invokes StashPullPop git function
 var StashPpCmd cli.Command = cli.Command{
 	Name:        "stashPullPop",
