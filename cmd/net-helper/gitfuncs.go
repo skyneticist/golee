@@ -172,7 +172,9 @@ func AddCommitPush(c *cli.Context) error {
 		},
 	}
 
+	fmt.Println("checking!!")
 	if exists {
+		fmt.Println("EXISTS")
 		cmds = existingBranchCommands
 	} else {
 		cmds = newBranchCommands
