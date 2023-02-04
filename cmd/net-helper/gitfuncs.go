@@ -21,6 +21,7 @@ func (gitCmds GitCmdList) multipass() ([]string, error) {
 	for i, gitCmd := range gitCmds {
 		info, err := runGitCmd(gitCmd)
 		if err != nil {
+			fmt.Println(gitCmd)
 			return []string{"Error occurred in multipass function - line 13 in gitfuncs.go"}, err
 		}
 		if i == 0 {
@@ -104,10 +105,43 @@ func Fullpull(c *cli.Context) error {
 	return nil
 }
 
+func CheckRemoteExists(branchName string) (bool, error) {
+	cmds := GitCmdList{
+		GitCmd{
+			cmd:  "ls-remote",
+			args: []string{"origin", branchName},
+		},
+	}
+	info, err := cmds.multipass()
+	if err != nil {
+		fmt.Println(info)
+		return false, err
+	}
+	if info[0] != "" {
+		fmt.Println("we have made it to info[0] -- true")
+		return true, nil
+	}
+	return false, nil
+}
+
 // AddCommitPush - Add, Commit, Push local changes to current branch
 func AddCommitPush(c *cli.Context) error {
+	var cmds GitCmdList
 	commitMsg := os.Args[2]
-	cmds := GitCmdList{
+
+	br, err := getGitBranch()
+	if err != nil {
+		fmt.Println("getGit")
+		return err
+	}
+
+	exists, err := CheckRemoteExists(br)
+	if err != nil {
+		fmt.Println(exists)
+		return err
+	}
+
+	existingBranchCommands := GitCmdList{
 		GitCmd{
 			cmd:  "add",
 			args: []string{"."},
@@ -120,6 +154,27 @@ func AddCommitPush(c *cli.Context) error {
 			cmd:  "push",
 			args: nil,
 		},
+	}
+
+	newBranchCommands := GitCmdList{
+		GitCmd{
+			cmd:  "add",
+			args: []string{"."},
+		},
+		GitCmd{
+			cmd:  "commit",
+			args: []string{"-m", commitMsg},
+		},
+		GitCmd{
+			cmd:  "push",
+			args: []string{"-u", "origin", "HEAD"},
+		},
+	}
+
+	if exists {
+		cmds = existingBranchCommands
+	} else {
+		cmds = newBranchCommands
 	}
 
 	info, err := cmds.multipass()
