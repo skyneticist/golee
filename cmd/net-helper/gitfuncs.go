@@ -176,7 +176,7 @@ func AddCommitPush(c *cli.Context) error {
 		cmds = existingBranchCommands
 	} else {
 		cmds = newBranchCommands
-		fmt.Println(cmds)
+		fmt.Println("???")
 	}
 
 	info, err := cmds.multipass()
