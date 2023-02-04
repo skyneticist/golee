@@ -107,7 +107,7 @@ func Fullpull(c *cli.Context) error {
 // AddCommitPush - Add, Commit, Push local changes to current branch
 func AddCommitPush(c *cli.Context) error {
 	commitMsg := os.Args[2]
-	cmds := GitCmdList{
+	existPushCommands := GitCmdList{
 		GitCmd{
 			cmd:  "add",
 			args: []string{"."},
@@ -122,20 +122,7 @@ func AddCommitPush(c *cli.Context) error {
 		},
 	}
 
-	info, err := cmds.multipass()
-	if err != nil {
-		return err
-	}
-	fmt.Println(info)
-
-	return nil
-}
-
-// AddCommitPushRemote - Add, Commit, Push local changes
-// on fresh branch (sets upstream)
-func AddCommitPushRemote(c *cli.Context) error {
-	commitMsg := os.Args[2]
-	cmds := GitCmdList{
+	freshPushCommands := GitCmdList{
 		GitCmd{
 			cmd:  "add",
 			args: []string{"."},
@@ -150,6 +137,19 @@ func AddCommitPushRemote(c *cli.Context) error {
 		},
 	}
 
+	br, err := getGitBranch()
+	branchExists, err := checkBranchExists(br)
+	if err != nil {
+		panic(err)
+	}
+
+	var cmds GitCmdList
+	if branchExists {
+		cmds = existPushCommands
+	} else {
+		cmds = freshPushCommands
+	}
+
 	info, err := cmds.multipass()
 	if err != nil {
 		return err
@@ -157,6 +157,10 @@ func AddCommitPushRemote(c *cli.Context) error {
 	fmt.Println(info)
 
 	return nil
+}
+
+func checkBranchExists(branch string) (bool, error) {
+	return false, nil
 }
 
 // StashPullPop - Runs git stash, pull, pop
