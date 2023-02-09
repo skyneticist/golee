@@ -126,6 +126,7 @@ func Fullpull(c *cli.Context) error {
 	return nil
 }
 
+// AddCommitPush
 func AddCommitPush(c *cli.Context) error {
 	var cmds GitCmdList
 	commitMsg := os.Args[2]
@@ -179,8 +180,8 @@ func AddCommitPush(c *cli.Context) error {
 		fmt.Println("EXISTS")
 		cmds = existingBranchCommands
 	} else {
+		fmt.Println("NEW")
 		cmds = newBranchCommands
-		fmt.Println("???")
 	}
 
 	info, err := cmds.multipass()
